@@ -543,19 +543,22 @@ int main(int argc, char const *argv[])
           myfile.close();
         }
       }
-      if (chooser == "quit"){
+      if (chooser == "otest"){
+
+      }
+      if (chooser == "quit"){ //Encerra o programa.
         validcommand = 1;
         cout << "Encerrando o programa." << endl << endl;
         option = 0;
+        // Libera a memória das listas globais
+        delete globalList;
+        delete playlists;
+        cout << "Programa Encerrado!"
       } 
       if(validcommand == 0){
         cout << "Comando inválido!" << endl << endl;
       }
   }
-
-  // Libera a memória das listas globais
-  delete globalList;
-  delete playlists;
 
   return 0;
 }
