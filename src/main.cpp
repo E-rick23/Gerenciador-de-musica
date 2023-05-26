@@ -553,7 +553,7 @@ int main(int argc, char const *argv[])
         // Libera a memória das listas globais
         delete globalList;
         delete playlists;
-        cout << "Programa Encerrado!"
+        cout << "Programa Encerrado!";
       } 
       if(validcommand == 0){
         cout << "Comando inválido!" << endl << endl;
