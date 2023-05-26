@@ -5,10 +5,12 @@
  * @brief Projeto que organiza músicas e playlists em listas ligadas.
  * @version 0.1
  */
-/*a*/
 #include <iostream>
 #include <cstdlib>
 #include <string>
+#include <fstream>
+#include <iterator>
+#include <algorithm>
 
 #include "musica.h"
 #include "listaLigada.h"
@@ -513,6 +515,34 @@ int main(int argc, char const *argv[])
         validcommand = 1;
         helpPage();
       }
+      if (chooser == "savetf"){
+        validcommand = 1;
+        ofstream myfile;
+        
+        cout << "Escolha a playlist que você quer armazenar: " << endl;
+        playlists->display();
+        cout << "Insira o índice da playlist desejada: ";
+        cin >> chkint; 
+        index = stoi(checkInt(chkint));
+        while (index < 1 || index > playlists->getSize()) {
+          cout << "Índice inválido! Tente novamente: ";
+          cin >> chkint; 
+          index = stoi(checkInt(chkint));
+        }
+        tempPlaylist = playlists->getPlaylist(index);
+        
+        if (tempPlaylist->getSongs()->getSize() == 0) {
+          cout << endl << "Ops, a música não foi adicionada até o momento, por favor, adicione-a e tente novamente! " << endl << endl;
+        } else {
+          myfile.open("Playlists.txt", std::ios_base::app);
+          // myfile << endl << endl << "Músicas da playlist '" << tempPlaylist->getName() << "':" << endl << endl;
+          myfile << tempPlaylist->getName() << ";";
+          tempPlaylist->saveAlltofile(tempPlaylist->getSongs()->getHead(), myfile);
+          myfile.seekp(-1, ios::end);
+          myfile << endl;
+          myfile.close();
+        }
+      }
       if (chooser == "quit"){
         validcommand = 1;
         cout << "Encerrando o programa." << endl << endl;
@@ -551,7 +581,8 @@ void helpPage(){
   cout << "addmp - Adicionar música a uma playlist" << endl;
   cout << "delmp - Remover música de uma playlist" << endl;
   cout << "mmp - Mover música numa playlist" << endl;
-  cout << "listmp - Listar músicas de uma playlist" << endl << endl;
+  cout << "listmp - Listar músicas de uma playlist" << endl;
+  cout << "savetf - Salvar uma playlist em um arquivo" << endl << endl;
 
   cout << "Comando para encerrar o programa: " << endl << endl;
   cout << "quit - Sair" << endl;

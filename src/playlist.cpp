@@ -6,6 +6,7 @@
  * @version 0.1
  */
 #include "playlist.h"
+#include <fstream>
 
 using namespace std;
 
@@ -209,6 +210,29 @@ void Playlist::displayAllSongs(no* current) {
   displayAllSongs(current->next); /** Chamada recursiva para que todas as músicas sejam exibidas*/
 }
 
+/*void Playlist::saveAlltofile(no* current, ofstream& myfile) {
+  // Condição de parada 
+  if (current == nullptr) {
+    count = 1;
+    return;
+  }
+  myfile << count << " - " << current->data.getTitle() << " - " << current->data.getArtist() << endl; //Exibe a música atual
+  ++count;
+  saveAlltofile(current->next, myfile); // Chamada recursiva para que todas as músicas sejam exibidas
+}*/
+
+void Playlist::saveAlltofile(no* current, ofstream& myfile) {
+  /** Condição de parada */
+  if (current == nullptr) {
+    count = 1;
+    return;
+  }
+  myfile << current->data.getTitle() << ":" << current->data.getArtist() << ","; /**Exibe a música atual*/
+  ++count;
+  saveAlltofile(current->next, myfile); /** Chamada recursiva para que todas as músicas sejam exibidas*/
+}
+
+
 /**
  * Função recursiva que exibe a música que o usuário deseja, usando seu índice.
  * @param current ponteiro para o nó atual contendo a música a que será exibida.
@@ -224,4 +248,23 @@ cout << current->data.getTitle() << " - " << current->data.getArtist() << endl; 
   }
   ++count;
   displayOne(current->next, pos);
+}
+
+// Function to merge two playlists
+Playlist* mergePlaylists(Playlist* playlist1, Playlist* playlist2) {
+    if (playlist1 == nullptr) {
+        return playlist2;
+    }
+    if (playlist2 == nullptr) {
+        return playlist1;
+    }
+
+    Playlist* mergedList = playlist1;
+    Playlist* currSong = mergedList;
+    while (currSong++ != nullptr) {
+        currSong = currSong++;
+    }
+    currSong = playlist2;
+
+    return mergedList;
 }
