@@ -50,7 +50,7 @@ int main(int argc, char const *argv[])
     string chooser;
     //Le a opção escolhida
     cin >> chooser;
-    cout << endl << "----------------------------------------" << endl << endl;
+    cout << endl << "________________________________________" << endl << endl;
     if(chooser == "add") { // Adicionar uma música
         validcommand = 1;
         // Le as entradas
@@ -543,8 +543,12 @@ int main(int argc, char const *argv[])
           myfile.close();
         }
       }
-      if (chooser == "otest"){
-
+      if (chooser == "otest"){ // Opção de teste para os métodos sobrecarregados
+        validcommand = 1;
+        testeSobrecarga();
+        cout << "Pressione 'Enter' para continuar." << endl;
+        getchar();
+        getchar();
       }
       if (chooser == "quit"){ //Encerra o programa.
         validcommand = 1;
@@ -559,12 +563,12 @@ int main(int argc, char const *argv[])
         cout << "Comando inválido!" << endl << endl;
       }
   }
-
   return 0;
 }
 
 /**< Imprime os comandos que o programa pode executar. */
 void helpPage(){
+
   cout << "Comandos para gerenciamento de músicas: " << endl << endl;
   cout << "add - Adicionar uma música" << endl;
   cout << "del - Remover uma música" << endl;
@@ -587,9 +591,10 @@ void helpPage(){
   cout << "listmp - Listar músicas de uma playlist" << endl;
   cout << "savetf - Salvar uma playlist em um arquivo" << endl << endl;
 
-  cout << "Comando para encerrar o programa: " << endl << endl;
-  cout << "quit - Sair" << endl;
-  cout << "----------------------------------------" << endl << endl;
+  cout << "otest - Teste de métodos sobrecarregados." << endl << endl;
+
+  cout << "quit - Encerrar o programa." << endl;
+  cout << "________________________________________" << endl << endl;
 }
 
 /**< Imprime a tela inicial. */
