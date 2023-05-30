@@ -266,3 +266,42 @@ void testeSobrecarga(){
         cout << "Concluído!" << endl << endl;
         cout << "Teste finalizado com sucesso!" << endl;
 }
+
+/**< Imprime os comandos que o programa pode executar. */
+void helpPage(){
+
+  cout << "Comandos para gerenciamento de músicas: " << endl << endl;
+  cout << "add - Adicionar uma música" << endl;
+  cout << "del - Remover uma música" << endl;
+  cout << "list - Listar todas as músicas" << endl;
+  cout << "search - Buscar uma música" << endl << endl;
+
+  cout << "Comandos para gerenciamento de playlists: " << endl << endl;
+  cout << "addp - Adicionar uma playlist" << endl;
+  cout << "delp - Remover uma playlist" << endl;
+  cout << "listp - Listar todas as playlists" << endl;
+  cout << "playp - Comece a tocar uma playlist" << endl << endl;
+
+  cout << "Comandos para gerenciamento de músicas em playlists: " << endl << endl;
+  cout << "playn - Toque a próxima música de uma playlist." << endl;
+  cout << "playb - Volte uma música." << endl;
+  cout << "plays - Pare a reprodução de músicas." << endl;
+  cout << "addmp - Adicionar música a uma playlist" << endl;
+  cout << "delmp - Remover música de uma playlist" << endl;
+  cout << "mmp - Mover música numa playlist" << endl;
+  cout << "listmp - Listar músicas de uma playlist" << endl;
+  cout << "savetf - Salvar uma playlist em um arquivo" << endl;
+  cout << "mergep - Unir duas playlists em uma única playlist" << endl << endl;
+
+  cout << "otest - Teste de métodos sobrecarregados." << endl << endl;
+
+  cout << "quit - Encerrar o programa." << endl;
+  cout << "________________________________________" << endl << endl;
+}
+
+/**< Imprime a tela inicial. */
+void telaInicial() {
+  cout << "       ------ Tela Inicial ------" << endl;
+  cout << "Para uma lista de comandos digite 'help' " << endl << endl;
+  cout << "Digite um comando: ";
+}
