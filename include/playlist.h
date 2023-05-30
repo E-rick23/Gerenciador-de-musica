@@ -44,7 +44,6 @@ class Playlist {
     void displayAllSongs(no* current); //Exibe todas as músicas que compoem a playlist.
     void saveAlltofile(no* current, ofstream& myfile);
     void displayOne(no* current, int pos);
-    void mergePlaylists(Playlist* playlist1, Playlist* playlist2);
 };
 
 #endif

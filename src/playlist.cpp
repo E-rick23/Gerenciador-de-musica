@@ -220,6 +220,7 @@ void Playlist::displayAllSongs(no* current) {
   ++count;
   saveAlltofile(current->next, myfile); // Chamada recursiva para que todas as músicas sejam exibidas
 }*/
+string tempStr;
 
 void Playlist::saveAlltofile(no* current, ofstream& myfile) {
   /** Condição de parada */
@@ -227,7 +228,15 @@ void Playlist::saveAlltofile(no* current, ofstream& myfile) {
     count = 1;
     return;
   }
-  myfile << current->data.getTitle() << ":" << current->data.getArtist() << ","; /**Exibe a música atual*/
+  tempStr = current->data.getTitle() + ":" + current->data.getArtist() + ","; /**Exibe a música atual*/
+  if(current->next == nullptr){
+    tempStr.erase(tempStr.size() -1 );
+    myfile << tempStr;
+  }
+  else {
+    myfile << tempStr;
+  }
+
   ++count;
   saveAlltofile(current->next, myfile); /** Chamada recursiva para que todas as músicas sejam exibidas*/
 }
@@ -248,23 +257,4 @@ cout << current->data.getTitle() << " - " << current->data.getArtist() << endl; 
   }
   ++count;
   displayOne(current->next, pos);
-}
-
-// Function to merge two playlists
-Playlist* mergePlaylists(Playlist* playlist1, Playlist* playlist2) {
-    if (playlist1 == nullptr) {
-        return playlist2;
-    }
-    if (playlist2 == nullptr) {
-        return playlist1;
-    }
-
-    Playlist* mergedList = playlist1;
-    Playlist* currSong = mergedList;
-    while (currSong++ != nullptr) {
-        currSong = currSong++;
-    }
-    currSong = playlist2;
-
-    return mergedList;
 }
