@@ -20,9 +20,6 @@
 
 using namespace std;
 
-void telaInicial();
-void helpPage();
-
 string chkint;
 int playing = 0;
 
