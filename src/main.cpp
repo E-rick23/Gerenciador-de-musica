@@ -511,6 +511,41 @@ int main(int argc, char const *argv[])
           }
         }
       }
+      if(chooser == "copyp"){
+        validcommand = 1;
+        if (playlists->getSize() == 0) {
+          cout << "Ops, nenhuma playlist foi adicionada até o momento, crie duas e tente novamente! " << endl;
+        } else {
+          // Lê a entrada
+          cout << "Playlists disponíveis: " << endl;
+          playlists->display();
+          cout << "Insira o índice da primeira playlist desejada: ";
+          cin >> chkint; 
+          index = stoi(checkInt(chkint));
+
+          // Processo para garantir que a entrada é válida
+          while (index < 1 || index > playlists->getSize()) {
+            cout << "Índice inválido! Tente novamente: ";
+            cin >> chkint; 
+            index = stoi(checkInt(chkint));
+          }
+
+          // Obtém a playlist pelo índice
+          tempPlaylist = playlists->getPlaylist(index);
+
+          Playlist* tempPlaylistC = new Playlist(*tempPlaylist);
+
+          cout << "Digite o nome da nova Playlist: ";
+          cin.ignore(256, '\n');
+          getline(cin, tempTitle);
+
+          // Adiciona o nome escolhido
+          tempPlaylistC->setName(tempTitle);
+
+          // Insere na lista
+          playlists->insertPlaylist(tempPlaylistC); 
+        }
+      }
       if (chooser == "mergep") {
         validcommand = 1;
 
