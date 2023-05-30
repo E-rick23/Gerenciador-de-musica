@@ -30,7 +30,7 @@ int main(int argc, char const *argv[])
   // Cria a lista de armazenar as playlists do programa
   ListOfPlaylists* playlists = new ListOfPlaylists;
 
-  size_t option = 12; // Opção selecionada no menu
+  int option = 1; // Variável que mantém o programa em loop.
   no* searchResult = nullptr; // Ponteiro para o nó retornado na busca
   size_t index = 0; // Indice na lista para as interações com o usuário
   size_t index2 = 0; // Indice na lista para as interações com o usuário
