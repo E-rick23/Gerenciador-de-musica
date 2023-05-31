@@ -8,4 +8,5 @@ string checkInt(string s); //Adquire apenas o valor inteiro de uma string.
 void testeSobrecarga(); //Teste dos metodos sobrecarregados...
 void helpPage(); //Imprime a tela de ajuda.
 void telaInicial(); //Imprime o menu do programa.
+void stopPlaying(int& playing, size_t& index); //Para a reprodução de músicas.
 #endif
