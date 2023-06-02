@@ -23,8 +23,7 @@ using namespace std;
 string chkint;
 int playing = 0;
 
-int main(int argc, char const *argv[])
-{ 
+int main(){ 
   // Cria a lista global de músicas do programa
   LinkedList* globalList = new LinkedList;
   // Cria a lista de armazenar as playlists do programa
