@@ -29,7 +29,7 @@ int main(){
   // Cria a lista de armazenar as playlists do programa
   ListOfPlaylists* playlists = new ListOfPlaylists;
 
-  int option = 1; // Variável que mantém o programa em loop.
+ 
   no* searchResult = nullptr; // Ponteiro para o nó retornado na busca
   size_t index = 0; // Indice na lista para as interações com o usuário
   size_t index2 = 0; // Indice na lista para as interações com o usuário
@@ -38,14 +38,13 @@ int main(){
   Song tempSong;
   string tempTitle = ""; 
   string tempArtist = "";
+  int option = 1; // Variável que mantém o programa em loop.
   // Executa o menu de funcionalidades enquanto a opção for diferente de 0
   while (option != 0) {
-    // Limpa a tela e exibe as opções do menu
     int validcommand = 0;
     telaInicial();
-    string chooser;
-    //Le a opção escolhida
-    cin >> chooser;
+    string chooser; //Declaração da string principal do programa.
+    cin >> chooser; //Lê a opção escolhida
     cout << endl << "________________________________________" << endl << endl;
     if(chooser == "add") { // Adicionar uma música
         validcommand = 1;
@@ -200,14 +199,7 @@ int main(){
       }
       if(chooser == "plays"){
         validcommand = 1;
-        if(playing == 0){
-          cout << "Nada está tocando no momento..." << endl;
-        }
-        if(playing == 1){
-          cout << "Parando a reprodução!" << endl;
-          index = 0;
-          playing = 0;
-        }
+        stopPlaying(playing, index);
       }
       if(chooser == "search") { // Buscar uma música 
         validcommand = 1;
@@ -471,9 +463,7 @@ int main(){
             tempPlaylist->moveSong(index, index2);
             cout << endl << "Posição alterada com sucesso." << endl << endl;
           }
-
         }
-        
       }
       if(chooser == "listmp") { // Listar músicas de uma playlist
         // Processo para garantir que há playlists adicionadas

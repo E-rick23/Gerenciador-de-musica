@@ -42,8 +42,8 @@ class Playlist {
     no* playNext(); //Retorna a próxima música a ser reproduzida.
 
     void displayAllSongs(no* current); //Exibe todas as músicas que compoem a playlist.
-    void saveAlltofile(no* current, ofstream& myfile);
-    void displayOne(no* current, int pos);
+    void saveAlltofile(no* current, ofstream& myfile); //Salva todas as músicas que existem em uma playlist em um arquivo
+    void displayOne(no* current, int pos); //Exibe uma música específica da playlist.
 };
 
 #endif

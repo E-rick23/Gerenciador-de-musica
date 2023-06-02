@@ -305,3 +305,14 @@ void telaInicial() {
   cout << "Para uma lista de comandos digite 'help' " << endl << endl;
   cout << "Digite um comando: ";
 }
+
+void stopPlaying(int& playing, size_t& index){
+  if(playing == 0){
+    cout << "Nada está tocando no momento..." << endl;
+  }
+  if(playing == 1){
+    cout << "Parando a reprodução!" << endl;
+    index = 0;
+    playing = 0;
+  }
+}
