@@ -26,7 +26,7 @@ int playing = 0;
 /**
  * @brief O menu principal do programa e todas as suas operações.
  */
-void main(){ 
+int main(){ 
   // Cria a lista global de músicas do programa
   LinkedList* globalList = new LinkedList;
   // Cria a lista de armazenar as playlists do programa
@@ -525,7 +525,7 @@ void main(){
 
         Playlist* tempPlaylistC = new Playlist(*tempPlaylist);
 
-        cout << "Digite o nome da nova Playlist: ";
+        cout << endl << "Digite o nome da nova Playlist: ";
         cin.ignore(256, '\n');
         getline(cin, tempTitle);
 
@@ -685,6 +685,7 @@ void main(){
       tempSong.setArtist("Van Haley");
       globalList->insertEnd(tempSong);
       Playlist_2->insertSong(4, tempSong);
+      cout << "Músicas adicionadas com sucesso!" << endl << endl;
     }
     if (chooser == "help"){
       validcommand = 1;
@@ -738,4 +739,5 @@ void main(){
       cout << "Comando inválido!" << endl << endl;
     }
   }
+  return 0;
 }
