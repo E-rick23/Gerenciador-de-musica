@@ -271,28 +271,39 @@ void testeSobrecarga(){
 void helpPage(){
 
   cout << "Comandos para gerenciamento de músicas: " << endl << endl;
+
   cout << "add - Adicionar uma música" << endl;
   cout << "del - Remover uma música" << endl;
   cout << "list - Listar todas as músicas" << endl;
   cout << "search - Buscar uma música" << endl << endl;
 
   cout << "Comandos para gerenciamento de playlists: " << endl << endl;
+
   cout << "addp - Adicionar uma playlist" << endl;
   cout << "delp - Remover uma playlist" << endl;
-  cout << "listp - Listar todas as playlists" << endl;
-  cout << "playp - Comece a tocar uma playlist" << endl << endl;
+  cout << "listp - Listar todas as playlists" << endl << endl;
 
-  cout << "Comandos para gerenciamento de músicas em playlists: " << endl << endl;
+  cout << "Comandos para reproduzir músicas de playlists: " << endl;
+
+  cout << "playp - Comece a tocar uma playlist" << endl;
   cout << "playn - Toque a próxima música de uma playlist." << endl;
   cout << "playb - Volte uma música." << endl;
-  cout << "plays - Pare a reprodução de músicas." << endl;
+  cout << "plays - Pare a reprodução de músicas." << endl << endl;
+
+  cout << "Comandos para gerenciamento de músicas em playlists: " << endl << endl;
+  
   cout << "addmp - Adicionar música a uma playlist" << endl;
   cout << "delmp - Remover música de uma playlist" << endl;
   cout << "mmp - Mover música numa playlist" << endl;
   cout << "listmp - Listar músicas de uma playlist" << endl;
-  cout << "savetf - Salvar uma playlist em um arquivo" << endl;
-  cout << "mergep - Unir duas playlists em uma única playlist" << endl << endl;
+  cout << "copyp - Criar uma cópia de uma playlist existente." << endl;
+  cout << "mergep - Unir duas playlists em uma única playlist" << endl;
+  cout << "mergep- - Remover músicas da segunda playlist da primeira e retornar uma nova playlist" << endl << endl;
+   cout << "savetf - Salvar uma playlist em um arquivo" << endl;
 
+  cout << "Comandos para teste:" << endl;
+  
+  cout << "addtp - Adicionar músicas e playlists pré-definidas ao programa." << endl;
   cout << "otest - Teste de métodos sobrecarregados." << endl << endl;
 
   cout << "quit - Encerrar o programa." << endl;

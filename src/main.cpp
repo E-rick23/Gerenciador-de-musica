@@ -498,7 +498,7 @@ int main(){
           cout << endl;
         }
       }
-      if(chooser == "copyp"){
+      if(chooser == "copyp"){ //Função que cria uma playlist cópia de uma já existente.
         validcommand = 1;
         if (playlists->getSize() == 0) {
           cout << "Ops, nenhuma playlist foi adicionada até o momento, crie duas e tente novamente! " << endl;
@@ -533,7 +533,7 @@ int main(){
           playlists->insertPlaylist(tempPlaylistC); 
         }
       }
-      if (chooser == "mergep") {
+      if (chooser == "mergep") { //Função que cria uma nova playlist que contém as músicas de duas playlists previamente criadas.
         validcommand = 1;
 
         if (playlists->getSize() == 0) {
@@ -589,7 +589,7 @@ int main(){
           playlists->insertPlaylist(tempPlaylist3);         
         }
       }
-      if (chooser == "mergep-"){
+      if (chooser == "mergep-"){ // Função que usando duas playlists previamente criadas cria uma nova playlist com as músicas da segunda removidas da primeira.
         validcommand = 1;
 
         if (playlists->getSize() == 0) {
@@ -644,6 +644,46 @@ int main(){
           // Insere na lista
           playlists->insertPlaylist(tempPlaylist3);         
         }
+      }
+      if(chooser == "addtp"){ //Função que adiciona algumas músicas e playlists ao reprodutor automaticamente.
+        validcommand = 1;
+        // Adicionando primeira playlist.
+        Playlist* Playlist_1 = new Playlist;
+        Playlist_1->setName("Playlist 1");
+        playlists->insertPlaylist(Playlist_1);
+        // Adicionando segundo playlist.
+        Playlist* Playlist_2 = new Playlist;
+        Playlist_2->setName("Playlist 2");
+        playlists->insertPlaylist(Playlist_2);
+        // Adicionando primeira música
+        tempSong.setTitle("Shelter");
+        tempSong.setArtist("Porter Robinson");
+        globalList->insertEnd(tempSong);
+        //Adicionando a música na playlist 1
+        Playlist_1->insertSong(1, tempSong);
+        // Adicionando segunda música
+        tempSong.setTitle("Never Gonna Give You Up");
+        tempSong.setArtist("Rick Astley");
+        globalList->insertEnd(tempSong);
+        Playlist_1->insertSong(2, tempSong);
+        Playlist_2->insertSong(1, tempSong);
+        // Adicionando terceira música
+        tempSong.setTitle("Firework");
+        tempSong.setArtist("Katy Perry");
+        globalList->insertEnd(tempSong);
+        Playlist_1->insertSong(3, tempSong);
+        Playlist_2->insertSong(2, tempSong);
+        // Adicionando quarta música
+        tempSong.setTitle("Complicated");
+        tempSong.setArtist("Avril Lavigne");
+        globalList->insertEnd(tempSong);
+        Playlist_2->insertSong(3, tempSong);
+        // Adicionando quinta música
+        tempSong.setTitle("Jump");
+        tempSong.setArtist("Van Haley");
+        globalList->insertEnd(tempSong);
+        Playlist_2->insertSong(4, tempSong);
+        
       }
       if (chooser == "help"){
         validcommand = 1;
