@@ -374,8 +374,9 @@ size_t LinkedList::getPosition(Song searchSong) {
   return 0;
 }
 
-
-/**< Essa função exibe as músicas armazenadas na lista ligada utilizando um loop while que irá até a ultima posição da lista. */
+/**
+ * @brief Essa função exibe as músicas armazenadas na lista ligada utilizando um loop while que irá até a ultima posição da lista.
+ */
 void LinkedList::display() {
   no* temp = head;
   size_t index = 1;

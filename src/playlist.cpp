@@ -220,8 +220,15 @@ void Playlist::displayAllSongs(no* current) {
   ++count;
   saveAlltofile(current->next, myfile); // Chamada recursiva para que todas as músicas sejam exibidas
 }*/
+
 string tempStr;
 
+/**
+ * @brief Função recursiva que adiciona uma playlist a um arquivo "Playlist.txt".
+ * 
+ * @param current recebe o nó do índice atual da música na playlist
+ * @param myfile recebe o arquivo que os dados serão inseridos.
+ */
 void Playlist::saveAlltofile(no* current, ofstream& myfile) {
   /** Condição de parada */
   if (current == nullptr) {

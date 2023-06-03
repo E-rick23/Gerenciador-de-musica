@@ -142,7 +142,9 @@ void ListOfPlaylists::removeFromAll(Song target) {
     temp = temp->next;
   }
 }
-/**< Essa função mostra todas as playlists armazenadas na lista ligada. */
+/**
+ * @brief Função que exibe todas as playlists na lista ligada.
+ */
 void ListOfPlaylists::display() {
   no_* temp = head;
   size_t i = 1;

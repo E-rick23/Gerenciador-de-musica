@@ -43,7 +43,7 @@ string checkInt(string s){
 }
 
 /**
- * Função que testa os métodos sobrecarregados.
+ * @brief Função que testa os métodos sobrecarregados.
  */
 void testeSobrecarga(){
   LinkedList* testList = new LinkedList;
@@ -267,7 +267,9 @@ void testeSobrecarga(){
         cout << "Teste finalizado com sucesso!" << endl;
 }
 
-/**< Imprime os comandos que o programa pode executar. */
+/**
+ * @brief Função que imprime para o usuário os comandos que o programa pode executar. 
+ */
 void helpPage(){
 
   cout << "Comandos para gerenciamento de músicas: " << endl << endl;
@@ -310,13 +312,21 @@ void helpPage(){
   cout << "________________________________________" << endl << endl;
 }
 
-/**< Imprime a tela inicial. */
+/**
+ * @brief Função que imprime a tela inicial.
+ */
 void telaInicial() {
   cout << "       ------ Tela Inicial ------" << endl;
   cout << "Para uma lista de comandos digite 'help' " << endl << endl;
   cout << "Digite um comando: ";
 }
 
+/**
+ * @brief Função que para a reprodução de músicas.
+ * 
+ * @param playing Status da reprodução.
+ * @param index Índice da música que está sendo reproduzida atualmente.
+ */
 void stopPlaying(int& playing, size_t& index){
   if(playing == 0){
     cout << "Nada está tocando no momento..." << endl;

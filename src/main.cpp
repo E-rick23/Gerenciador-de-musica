@@ -23,6 +23,9 @@ using namespace std;
 string chkint;
 int playing = 0;
 
+/**
+ * @brief O menu principal do programa e todas as suas operações.
+ */
 void main(){ 
   // Cria a lista global de músicas do programa
   LinkedList* globalList = new LinkedList;
