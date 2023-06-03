@@ -24,7 +24,7 @@ Os comandos disponíveis neste programa são:
 
 ```bash
 
-# help - Comando que exibe a list de comandos.
+# help - Comando que exibe a lista de comandos.
 
 # quit - Comando que encerra o programa.
 
@@ -54,7 +54,20 @@ Os comandos disponíveis neste programa são:
 
 # listp - Comando que lista todas as playlists armazenadas.
 
+
+```
+
+## Comandos para reprodução de música nas playlists:
+
+```bash
+
 # playp - Comando para reproduzir uma playlist.
+
+# playn - Comando para que a próxima música da playlist seja reproduzida.
+
+# playb - Comando para que a música anterior da playlist seja reproduzida.
+
+# plays - Comando para que a reprodução de músicas pare.
 
 ```
 
@@ -62,11 +75,6 @@ Os comandos disponíveis neste programa são:
 
 ```bash
 
-# playn - Comando para que a próxima música da playlist seja reproduzida.
-
-# playb - Comando para que a música anterior da playlist seja reproduzida.
-
-# plays - Comando para que a reprodução de músicas pare.
 
 # addmp - Comando que adiciona uma música em uma playlist.
 
@@ -75,6 +83,24 @@ Os comandos disponíveis neste programa são:
 # mmp = Comando que move músicas em uma playlist.
 
 # listmp - Comando que lista músicas em uma playlist.
+
+# copymp - Comando que cria uma cópia de uma playlist existente.
+
+# mergep - Comando que cria uma nova playlist união de duas playlists.
+
+# mergep- - Comando que cria uma nova playlist, removendo as músicas da segunda playlist da primeira.
+
+# savetf - Salvar uma playlist em um arquivo "Playlists.txt".
+
+```
+
+## Comandos para testes das funções:
+
+```bash
+
+# addtp - Adiciona algumas músicas e playlists pré-definidas.
+
+# otest - Testa os métodos sobrecarregados.
 
 ```
 
@@ -107,7 +133,7 @@ Para uma lista de comandos digite 'help'
 
 Digite um comando: help
 
-----------------------------------------
+________________________________________
 
 Comandos para gerenciamento de músicas:
 
@@ -121,22 +147,31 @@ Comandos para gerenciamento de playlists:
 addp - Adicionar uma playlist
 delp - Remover uma playlist
 listp - Listar todas as playlists
+
+Comandos para reproduzir músicas de playlists:       
 playp - Comece a tocar uma playlist
-
-Comandos para gerenciamento de músicas em playlists:
-
-playn - Toque a próxima música de uma playlist.
+playn - Toque a próxima música de uma playlist.      
 playb - Volte uma música.
 plays - Pare a reprodução de músicas.
+
+Comandos para gerenciamento de músicas em playlists: 
+
 addmp - Adicionar música a uma playlist
 delmp - Remover música de uma playlist
 mmp - Mover música numa playlist
 listmp - Listar músicas de uma playlist
+copyp - Criar uma cópia de uma playlist existente.
+mergep - Unir duas playlists em uma única playlist
+mergep- - Remover músicas da segunda playlist da primeira e retornar uma nova playlist
 
-Comando para encerrar o programa:
+savetf - Salvar uma playlist em um arquivo
+Comandos para teste:
+addtp - Adicionar músicas e playlists pré-definidas ao programa.
+otest - Teste de métodos sobrecarregados.
 
-quit - Sair
-----------------------------------------
+quit - Encerrar o programa.
+________________________________________
+
 ```
 ### Adicionando uma música
 ```bash
@@ -400,12 +435,137 @@ Insira o índice da playlist desejada: 3
 
 Músicas da playlist 'Rock':
 
-1 - Could Have been Me - The Struts
+1 - Could Have Been Me - The Struts
 2 - Take It - Avril Lavigne
 3 - Paradise City - Guns N Roses
 4 - Hot Night Crash - Sahara Hotnights
 5 - Complicated - Avril Lavigne
 ```
+### Criando uma playlist cópia usando uma playlist já existente
+```bash
+       ------ Tela Inicial ------
+Para uma lista de comandos digite 'help'
+
+Digite um comando: copyp
+
+----------------------------------------
+
+Playlists disponíveis:
+1 - Pop
+2 - Eletrônica
+3 - Rock
+4 - Lo-Fi
+Insira o índice da playlist desejada: 3
+
+Digite o nome da nova playlist: Cópia de Rock
+
+Playlist criada com sucesso!
+```
+### Unindo duas playlists em uma nova playlist
+
+```bash
+       ------ Tela Inicial ------
+Para uma lista de comandos digite 'help'
+
+Digite um comando: mergep
+
+----------------------------------------
+
+Playlists disponíveis:
+1 - Pop
+2 - Eletrônica
+3 - Rock
+4 - Lo-Fi
+5 - Cópia de Rock
+Insira o índice da primeira playlist desejada: 3
+
+Playlists disponíveis:
+1 - Pop
+2 - Eletrônica
+3 - Rock
+4 - Lo-Fi
+5 - Cópia de Rock
+Insira o índice da segunda playlist desejada: 1
+
+Digite o nome da nova playlist: Pop-Rock
+
+Playlist criada com sucesso!
+```
+### Apagando as músicas de uma playlist em outra playlist
+
+```bash
+       ------ Tela Inicial ------
+Para uma lista de comandos digite 'help'
+
+Digite um comando: mergep-
+
+----------------------------------------
+
+Playlists disponíveis:
+1 - Pop
+2 - Eletrônica
+3 - Rock
+4 - Lo-Fi
+5 - Cópia de Rock
+6 - Pop-Rock
+Insira o índice da primeira playlist desejada: 6
+
+Playlists disponíveis:
+1 - Pop
+2 - Eletrônica
+3 - Rock
+4 - Lo-Fi
+5 - Cópia de Rock
+6 - Pop-Rock
+Insira o índice da segunda playlist desejada: 1
+
+Digite o nome da nova playlist: Rock 2
+
+Playlist criada com sucesso!
+```
+
+### Salvando uma playlist em um arquivo
+
+```bash
+       ------ Tela Inicial ------
+Para uma lista de comandos digite 'help'
+
+Digite um comando: savetf
+
+
+Escolha a playlist que você quer armazenar:
+1 - Rock
+2 - Pop
+3 - Eletrônica
+4 - Lo-Fi
+5 - Cópia de Rock
+6 - Pop-Rock
+7 - Rock 2
+Insira o índice da playlist desejada: 7
+
+-> Output em Playlists.txt: 
+
+Rock 2;Could Have Been Me:The Struts,Take It:Avril Lavigne,Paradise City:Guns N Roses,Hot Night Crash:Sahara Hotnights,Complicated:Avril Lavigne
+
+```
+
+### Adicionando músicas e playlists pré-definidas
+```bash
+       ------ Tela Inicial ------
+Para uma lista de comandos digite 'help'
+
+Digite um comando: addtp
+
+________________________________________
+
+
+Playlist criada com sucesso!
+
+Playlist criada com sucesso!
+
+Músicas adicionadas com sucesso!
+```
+
 ### Encerrando o programa
 ```bash
        ------ Tela Inicial ------
@@ -419,4 +579,4 @@ Encerrando o programa.
 
 ```
 
-A documentação pode ser encontrada em pdf no arquivo "Documentação.pdf" que está nesta pasta ou em html na pasta "/docs/html/index.html".
+A documentação pode ser encontrada em pdf no arquivo "Documentação.pdf" na pasta raiz do programa ou em html na pasta "/docs/html/index.html".
