@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gerenciador de Músicas: Código-Fonte de include/listaLigada.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Gerenciador de Músicas<span id="projectnumber">&#160;v1.0</span>
+   </div>
+   <div id="projectbrief">Projeto que organiza músicas e playlists e as reproduz.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('lista_ligada_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhum resultado encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">listaLigada.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="lista_ligada_8h.html">Vá para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef LISTALIGADA_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define LISTALIGADA_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="musica_8h.html">musica.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//O struct abaixo representa um nó da lista ligada.</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="structno.html">    7</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structno.html">no</a> {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="structno.html#a144a437f61f86f76d8fe1887fc615578">    8</a></span>  <a class="code hl_class" href="class_song.html">Song</a> <a class="code hl_variable" href="structno.html#a144a437f61f86f76d8fe1887fc615578">data</a>; <span class="comment">//Armazena um objeto do tipo música.</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="structno.html#a73542a882b818b44b798ec1d97e16a9d">    9</a></span>  <a class="code hl_struct" href="structno.html">no</a>* <a class="code hl_variable" href="structno.html#a73542a882b818b44b798ec1d97e16a9d">next</a>; <span class="comment">//Ponteiro para o próximo nó.</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>};</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">//A classe abaixo representa uma lista ligada.</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_linked_list.html">   12</a></span><span class="keyword">class </span><a class="code hl_class" href="class_linked_list.html">LinkedList</a> {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_linked_list.html#a35df356077cf057b0f2d4e2e1f80bfe4">   14</a></span>    <a class="code hl_struct" href="structno.html">no</a>* <a class="code hl_variable" href="class_linked_list.html#a35df356077cf057b0f2d4e2e1f80bfe4">head</a>; <span class="comment">//Ponteiro para o inicio da lista.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_linked_list.html#a532afff8afdc1ca8ef8ca3dc9309fcc6">   15</a></span>    <a class="code hl_struct" href="structno.html">no</a>* <a class="code hl_variable" href="class_linked_list.html#a532afff8afdc1ca8ef8ca3dc9309fcc6">tail</a>; <span class="comment">//Ponteiro para o final da lista.z</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_linked_list.html#a8983298fc229caceaa6435c9c20417dc">   16</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_variable" href="class_linked_list.html#a8983298fc229caceaa6435c9c20417dc">size</a>; <span class="comment">//Tamanho da lista.</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_function" href="class_linked_list.html#afe7f78983e173f8018927cf2ad11a5aa">LinkedList</a>(); <span class="comment">//Construtor da lista ligada.</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_function" href="class_linked_list.html#a35811ed58ff0d8d9cc9b309b8d8f5111">~LinkedList</a>(); <span class="comment">//Destrutor da lista ligada.</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_function" href="class_linked_list.html#afe7f78983e173f8018927cf2ad11a5aa">LinkedList</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_linked_list.html">LinkedList</a>&amp; oldList); <span class="comment">//Construtor cópia da lista ligada. </span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_class" href="class_linked_list.html">LinkedList</a> <a class="code hl_function" href="class_linked_list.html#ac726e7135bbcbda055693202ec1247fd">operator+ </a>(<span class="keyword">const</span> <a class="code hl_class" href="class_linked_list.html">LinkedList</a>&amp; secondList); <span class="comment">//Concatenação de listas.</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_linked_list.html#ab9978f9a10bd37644775d510cf6ce20a">operator&gt;&gt; </a>(<a class="code hl_struct" href="structno.html">no</a>*&amp; lastno); <span class="comment">//Extrai o último elemento da lista.</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_linked_list.html#a9cb689312c70fdb562a9d5e69a0dddba">operator&lt;&lt; </a>(<a class="code hl_struct" href="structno.html">no</a>*&amp; newno); <span class="comment">//Insere um nó no fim da lista.</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_struct" href="structno.html">no</a>* <a class="code hl_function" href="class_linked_list.html#a248422bb6a4e6516ac9905bcb250f57c">getHead</a>(); <span class="comment">//Obtém o ponteiro do head.</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_struct" href="structno.html">no</a>* <a class="code hl_function" href="class_linked_list.html#ac4723eb44c4f040d70d6468addea84f9">getTail</a>(); <span class="comment">//Obtém o ponteiro do tail.</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="class_linked_list.html#ac8d24166208694f4fe3cc982307b03fb">getSize</a>(); <span class="comment">//Obtém o tamanho da lista.</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_linked_list.html#a054e141a4b424f0818863ae283456381">insertStart</a>(<a class="code hl_class" href="class_song.html">Song</a> value); <span class="comment">//Insere um nó no início.</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_linked_list.html#acd7d0b683aaf5ea4bb208b806fa2872b">insertEnd</a>(<a class="code hl_class" href="class_song.html">Song</a> value); <span class="comment">//Insere um nó no fim.</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_linked_list.html#a902cd9cf43f8ec9711778cd3b71e9175">insertPosition</a>(<span class="keywordtype">size_t</span> pos, <a class="code hl_class" href="class_song.html">Song</a> value); <span class="comment">//Insere um nó na posição específica.</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_linked_list.html#acd7d0b683aaf5ea4bb208b806fa2872b">insertEnd</a>(<a class="code hl_class" href="class_linked_list.html">LinkedList</a>&amp; toInsert); <span class="comment">//Sobrecarga do método de inserção.</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_linked_list.html#a703d2cb198f8d428d67a7ee059c15022">removeFirst</a>(); <span class="comment">//Elimina o primeiro nó.</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_linked_list.html#ac8bea0ab44ee09af4b647d2c389d2258">removeLast</a>(); <span class="comment">//Elimina o último nó.</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_linked_list.html#a4cf9d1fdf67868d502a7086c245ee3b6">removePosition</a>(<span class="keywordtype">size_t</span> pos); <span class="comment">//Elimina o nó na posição específica.</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_linked_list.html#a4cf9d1fdf67868d502a7086c245ee3b6">removePosition</a>(<a class="code hl_class" href="class_linked_list.html">LinkedList</a>&amp; toRemove); <span class="comment">//Sobrecarga do método de remoção.</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_struct" href="structno.html">no</a>* <a class="code hl_function" href="class_linked_list.html#a01efd552dee7a5ca391060ee68042e3e">search</a>(<a class="code hl_class" href="class_song.html">Song</a> searchSong); <span class="comment">//Procura um nó usando os atributos da música.</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_struct" href="structno.html">no</a>* <a class="code hl_function" href="class_linked_list.html#a4bb6b62a23c9f9675beb4b1f7f104384">getno</a>(<span class="keywordtype">size_t</span> pos); <span class="comment">//Retorna um nó com base na posição.</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="class_linked_list.html#a599cc1a1c4f08c8243a57cc846e81267">getPosition</a>(<a class="code hl_class" href="class_song.html">Song</a> searchSong); <span class="comment">//Retorna a posição de uma música na lista.</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_linked_list.html#af02eaa3695918e657f639996eae613c5">display</a>(); <span class="comment">//Exibe o conteúdo dos nós da lista.</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>};</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_linked_list_html"><div class="ttname"><a href="class_linked_list.html">LinkedList</a></div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8h_source.html#l00012">listaLigada.h:12</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_a01efd552dee7a5ca391060ee68042e3e"><div class="ttname"><a href="class_linked_list.html#a01efd552dee7a5ca391060ee68042e3e">LinkedList::search</a></div><div class="ttdeci">no * search(Song searchSong)</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00316">listaLigada.cpp:316</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_a054e141a4b424f0818863ae283456381"><div class="ttname"><a href="class_linked_list.html#a054e141a4b424f0818863ae283456381">LinkedList::insertStart</a></div><div class="ttdeci">void insertStart(Song value)</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00131">listaLigada.cpp:131</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_a248422bb6a4e6516ac9905bcb250f57c"><div class="ttname"><a href="class_linked_list.html#a248422bb6a4e6516ac9905bcb250f57c">LinkedList::getHead</a></div><div class="ttdeci">no * getHead()</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00038">listaLigada.cpp:38</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_a35811ed58ff0d8d9cc9b309b8d8f5111"><div class="ttname"><a href="class_linked_list.html#a35811ed58ff0d8d9cc9b309b8d8f5111">LinkedList::~LinkedList</a></div><div class="ttdeci">~LinkedList()</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00022">listaLigada.cpp:22</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_a35df356077cf057b0f2d4e2e1f80bfe4"><div class="ttname"><a href="class_linked_list.html#a35df356077cf057b0f2d4e2e1f80bfe4">LinkedList::head</a></div><div class="ttdeci">no * head</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8h_source.html#l00014">listaLigada.h:14</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_a4bb6b62a23c9f9675beb4b1f7f104384"><div class="ttname"><a href="class_linked_list.html#a4bb6b62a23c9f9675beb4b1f7f104384">LinkedList::getno</a></div><div class="ttdeci">no * getno(size_t pos)</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00341">listaLigada.cpp:341</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_a4cf9d1fdf67868d502a7086c245ee3b6"><div class="ttname"><a href="class_linked_list.html#a4cf9d1fdf67868d502a7086c245ee3b6">LinkedList::removePosition</a></div><div class="ttdeci">void removePosition(size_t pos)</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00260">listaLigada.cpp:260</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_a532afff8afdc1ca8ef8ca3dc9309fcc6"><div class="ttname"><a href="class_linked_list.html#a532afff8afdc1ca8ef8ca3dc9309fcc6">LinkedList::tail</a></div><div class="ttdeci">no * tail</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8h_source.html#l00015">listaLigada.h:15</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_a599cc1a1c4f08c8243a57cc846e81267"><div class="ttname"><a href="class_linked_list.html#a599cc1a1c4f08c8243a57cc846e81267">LinkedList::getPosition</a></div><div class="ttdeci">size_t getPosition(Song searchSong)</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00359">listaLigada.cpp:359</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_a703d2cb198f8d428d67a7ee059c15022"><div class="ttname"><a href="class_linked_list.html#a703d2cb198f8d428d67a7ee059c15022">LinkedList::removeFirst</a></div><div class="ttdeci">void removeFirst()</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00230">listaLigada.cpp:230</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_a8983298fc229caceaa6435c9c20417dc"><div class="ttname"><a href="class_linked_list.html#a8983298fc229caceaa6435c9c20417dc">LinkedList::size</a></div><div class="ttdeci">size_t size</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8h_source.html#l00016">listaLigada.h:16</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_a902cd9cf43f8ec9711778cd3b71e9175"><div class="ttname"><a href="class_linked_list.html#a902cd9cf43f8ec9711778cd3b71e9175">LinkedList::insertPosition</a></div><div class="ttdeci">void insertPosition(size_t pos, Song value)</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00196">listaLigada.cpp:196</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_a9cb689312c70fdb562a9d5e69a0dddba"><div class="ttname"><a href="class_linked_list.html#a9cb689312c70fdb562a9d5e69a0dddba">LinkedList::operator&lt;&lt;</a></div><div class="ttdeci">void operator&lt;&lt;(no *&amp;newno)</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00118">listaLigada.cpp:118</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_ab9978f9a10bd37644775d510cf6ce20a"><div class="ttname"><a href="class_linked_list.html#ab9978f9a10bd37644775d510cf6ce20a">LinkedList::operator&gt;&gt;</a></div><div class="ttdeci">void operator&gt;&gt;(no *&amp;lastno)</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00104">listaLigada.cpp:104</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_ac4723eb44c4f040d70d6468addea84f9"><div class="ttname"><a href="class_linked_list.html#ac4723eb44c4f040d70d6468addea84f9">LinkedList::getTail</a></div><div class="ttdeci">no * getTail()</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00042">listaLigada.cpp:42</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_ac726e7135bbcbda055693202ec1247fd"><div class="ttname"><a href="class_linked_list.html#ac726e7135bbcbda055693202ec1247fd">LinkedList::operator+</a></div><div class="ttdeci">LinkedList operator+(const LinkedList &amp;secondList)</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00069">listaLigada.cpp:69</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_ac8bea0ab44ee09af4b647d2c389d2258"><div class="ttname"><a href="class_linked_list.html#ac8bea0ab44ee09af4b647d2c389d2258">LinkedList::removeLast</a></div><div class="ttdeci">void removeLast()</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00238">listaLigada.cpp:238</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_ac8d24166208694f4fe3cc982307b03fb"><div class="ttname"><a href="class_linked_list.html#ac8d24166208694f4fe3cc982307b03fb">LinkedList::getSize</a></div><div class="ttdeci">size_t getSize()</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00046">listaLigada.cpp:46</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_acd7d0b683aaf5ea4bb208b806fa2872b"><div class="ttname"><a href="class_linked_list.html#acd7d0b683aaf5ea4bb208b806fa2872b">LinkedList::insertEnd</a></div><div class="ttdeci">int insertEnd(Song value)</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00150">listaLigada.cpp:150</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_af02eaa3695918e657f639996eae613c5"><div class="ttname"><a href="class_linked_list.html#af02eaa3695918e657f639996eae613c5">LinkedList::display</a></div><div class="ttdeci">void display()</div><div class="ttdoc">Essa função exibe as músicas armazenadas na lista ligada utilizando um loop while que irá até a ultim...</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00380">listaLigada.cpp:380</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_afe7f78983e173f8018927cf2ad11a5aa"><div class="ttname"><a href="class_linked_list.html#afe7f78983e173f8018927cf2ad11a5aa">LinkedList::LinkedList</a></div><div class="ttdeci">LinkedList()</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00015">listaLigada.cpp:15</a></div></div>
+<div class="ttc" id="aclass_song_html"><div class="ttname"><a href="class_song.html">Song</a></div><div class="ttdef"><b>Definition:</b> <a href="musica_8h_source.html#l00008">musica.h:8</a></div></div>
+<div class="ttc" id="amusica_8h_html"><div class="ttname"><a href="musica_8h.html">musica.h</a></div></div>
+<div class="ttc" id="astructno_html"><div class="ttname"><a href="structno.html">no</a></div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8h_source.html#l00007">listaLigada.h:7</a></div></div>
+<div class="ttc" id="astructno_html_a144a437f61f86f76d8fe1887fc615578"><div class="ttname"><a href="structno.html#a144a437f61f86f76d8fe1887fc615578">no::data</a></div><div class="ttdeci">Song data</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8h_source.html#l00008">listaLigada.h:8</a></div></div>
+<div class="ttc" id="astructno_html_a73542a882b818b44b798ec1d97e16a9d"><div class="ttname"><a href="structno.html#a73542a882b818b44b798ec1d97e16a9d">no::next</a></div><div class="ttdeci">no * next</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8h_source.html#l00009">listaLigada.h:9</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="lista_ligada_8h.html">listaLigada.h</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+  </ul>
+</div>
+</body>
+</html>

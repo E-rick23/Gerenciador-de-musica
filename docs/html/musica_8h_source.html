@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gerenciador de Músicas: Código-Fonte de include/musica.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Gerenciador de Músicas<span id="projectnumber">&#160;v1.0</span>
+   </div>
+   <div id="projectbrief">Projeto que organiza músicas e playlists e as reproduz.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('musica_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhum resultado encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">musica.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="musica_8h.html">Vá para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef MUSICA_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define MUSICA_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">using namespace </span>std;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">//A classe abaixo representa uma musica armazenada.</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_song.html">    8</a></span><span class="keyword">class </span><a class="code hl_class" href="class_song.html">Song</a> {</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_song.html#aa4c4c36b50fa8345e6d247876020277f">   10</a></span>    <span class="keywordtype">string</span> <a class="code hl_variable" href="class_song.html#aa4c4c36b50fa8345e6d247876020277f">title</a>;  <span class="comment">//Título da música.</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="class_song.html#aeb7438471a14d9d83c41c1b080b822d4">   11</a></span>    <span class="keywordtype">string</span> <a class="code hl_variable" href="class_song.html#aeb7438471a14d9d83c41c1b080b822d4">artist</a>; <span class="comment">//Artista da música.</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_function" href="class_song.html#a1a73ff262627ce78860ec622859cf249">Song</a>(); <span class="comment">//Construtor da música.</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_function" href="class_song.html#a0749c3367e8de89e27458c248377027b">~Song</a>(); <span class="comment">//Destrutor da música.  </span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">string</span> <a class="code hl_function" href="class_song.html#a3dd577c3abfc309bceea6b0968a68d1c">getTitle</a>(); <span class="comment">//Adquire o título da música.</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_song.html#a479535dd6ee71e9180ca3b6facb539c8">setTitle</a>(<span class="keywordtype">string</span> _title); <span class="comment">//Adiciona o título da música.</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">string</span> <a class="code hl_function" href="class_song.html#a07dcbecc06e304ab0e243d612fae785d">getArtist</a>(); <span class="comment">//Adquire o artista da música.</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_song.html#a58b39575e2dd3f5b073e77c55e612121">setArtist</a>(<span class="keywordtype">string</span> _artist); <span class="comment">//Adiciona o artista da música.</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>};</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_song_html"><div class="ttname"><a href="class_song.html">Song</a></div><div class="ttdef"><b>Definition:</b> <a href="musica_8h_source.html#l00008">musica.h:8</a></div></div>
+<div class="ttc" id="aclass_song_html_a0749c3367e8de89e27458c248377027b"><div class="ttname"><a href="class_song.html#a0749c3367e8de89e27458c248377027b">Song::~Song</a></div><div class="ttdeci">~Song()</div><div class="ttdoc">Destroy um Song:: Song object.</div><div class="ttdef"><b>Definition:</b> <a href="musica_8cpp_source.html#l00022">musica.cpp:22</a></div></div>
+<div class="ttc" id="aclass_song_html_a07dcbecc06e304ab0e243d612fae785d"><div class="ttname"><a href="class_song.html#a07dcbecc06e304ab0e243d612fae785d">Song::getArtist</a></div><div class="ttdeci">string getArtist()</div><div class="ttdoc">Get que retorna o artísta de um &quot;Song&quot;.</div><div class="ttdef"><b>Definition:</b> <a href="musica_8cpp_source.html#l00037">musica.cpp:37</a></div></div>
+<div class="ttc" id="aclass_song_html_a1a73ff262627ce78860ec622859cf249"><div class="ttname"><a href="class_song.html#a1a73ff262627ce78860ec622859cf249">Song::Song</a></div><div class="ttdeci">Song()</div><div class="ttdoc">Constrói um novo Song:: Song object.</div><div class="ttdef"><b>Definition:</b> <a href="musica_8cpp_source.html#l00016">musica.cpp:16</a></div></div>
+<div class="ttc" id="aclass_song_html_a3dd577c3abfc309bceea6b0968a68d1c"><div class="ttname"><a href="class_song.html#a3dd577c3abfc309bceea6b0968a68d1c">Song::getTitle</a></div><div class="ttdeci">string getTitle()</div><div class="ttdoc">Get que retorna o título de um &quot;Song&quot;.</div><div class="ttdef"><b>Definition:</b> <a href="musica_8cpp_source.html#l00029">musica.cpp:29</a></div></div>
+<div class="ttc" id="aclass_song_html_a479535dd6ee71e9180ca3b6facb539c8"><div class="ttname"><a href="class_song.html#a479535dd6ee71e9180ca3b6facb539c8">Song::setTitle</a></div><div class="ttdeci">void setTitle(string _title)</div><div class="ttdoc">Set que define o título de um &quot;Song&quot;.</div><div class="ttdef"><b>Definition:</b> <a href="musica_8cpp_source.html#l00045">musica.cpp:45</a></div></div>
+<div class="ttc" id="aclass_song_html_a58b39575e2dd3f5b073e77c55e612121"><div class="ttname"><a href="class_song.html#a58b39575e2dd3f5b073e77c55e612121">Song::setArtist</a></div><div class="ttdeci">void setArtist(string _artist)</div><div class="ttdoc">Set que define o artista de um &quot;Song&quot;.</div><div class="ttdef"><b>Definition:</b> <a href="musica_8cpp_source.html#l00053">musica.cpp:53</a></div></div>
+<div class="ttc" id="aclass_song_html_aa4c4c36b50fa8345e6d247876020277f"><div class="ttname"><a href="class_song.html#aa4c4c36b50fa8345e6d247876020277f">Song::title</a></div><div class="ttdeci">string title</div><div class="ttdef"><b>Definition:</b> <a href="musica_8h_source.html#l00010">musica.h:10</a></div></div>
+<div class="ttc" id="aclass_song_html_aeb7438471a14d9d83c41c1b080b822d4"><div class="ttname"><a href="class_song.html#aeb7438471a14d9d83c41c1b080b822d4">Song::artist</a></div><div class="ttdeci">string artist</div><div class="ttdef"><b>Definition:</b> <a href="musica_8h_source.html#l00011">musica.h:11</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="musica_8h.html">musica.h</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+  </ul>
+</div>
+</body>
+</html>

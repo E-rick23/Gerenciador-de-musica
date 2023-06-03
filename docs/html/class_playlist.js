@@ -1,0 +1,28 @@
+var class_playlist =
+[
+    [ "Playlist", "class_playlist.html#aef38d55e42995be147977726350f3ada", null ],
+    [ "~Playlist", "class_playlist.html#aacd9a69e347fc19a9a0787d7a7ce9df4", null ],
+    [ "Playlist", "class_playlist.html#a07aef8d33252f11b13321f4c22d507cd", null ],
+    [ "displayAllSongs", "class_playlist.html#ac749def3329225790a8069ea61f808a4", null ],
+    [ "displayOne", "class_playlist.html#a853345e85d6898253897932b64471a29", null ],
+    [ "getName", "class_playlist.html#a880984e292d0002d3daa763c386ad963", null ],
+    [ "getSongs", "class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287", null ],
+    [ "insertSong", "class_playlist.html#a54e665f44066681c6e84b0f0a98496e7", null ],
+    [ "insertSong", "class_playlist.html#a96d670a87ad7adbcf2bac35293c18db9", null ],
+    [ "moveSong", "class_playlist.html#aad8c43f4a140ecad82dd6694c658abf2", null ],
+    [ "operator+", "class_playlist.html#ac8473ee36bb208cb92ed6fe59070244a", null ],
+    [ "operator+", "class_playlist.html#a1639eeacdc028a2ed24c0c039adfdb66", null ],
+    [ "operator-", "class_playlist.html#a0551c34d3b95e86d3f38794fc480acc5", null ],
+    [ "operator-", "class_playlist.html#a468af42d4773351510057b2f2a8888d4", null ],
+    [ "operator<<", "class_playlist.html#a3350a2fea2ed876dd9a63de335cab240", null ],
+    [ "operator>>", "class_playlist.html#a94cddf530d5a121c258b90403048e03b", null ],
+    [ "playNext", "class_playlist.html#a38dc6badf388c56d2512c878f3e6213e", null ],
+    [ "removeSong", "class_playlist.html#a2dc35fdc2098a453bcab3a4c05c82757", null ],
+    [ "removeSong", "class_playlist.html#a3cff70256b145c3c76ec024d3a00297c", null ],
+    [ "saveAlltofile", "class_playlist.html#a7697cc17a676db44638d4d60668026b1", null ],
+    [ "setName", "class_playlist.html#a1b80e7e123426e1ecab29b8955d0f704", null ],
+    [ "count", "class_playlist.html#aac48f4f1dd79afd730acab27a7a048da", null ],
+    [ "name", "class_playlist.html#abf45f72a84e0204cfe9f18005dff9eb7", null ],
+    [ "playing", "class_playlist.html#a8252fec176a7888127bc41cf18f4f251", null ],
+    [ "songs", "class_playlist.html#a77a50cdce43cba8d8ddfca652240f1f3", null ]
+];

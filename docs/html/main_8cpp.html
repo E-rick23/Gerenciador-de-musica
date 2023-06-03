@@ -1,0 +1,959 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gerenciador de Músicas: Referência do Arquivo src/main.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Gerenciador de Músicas<span id="projectnumber">&#160;v1.0</span>
+   </div>
+   <div id="projectbrief">Projeto que organiza músicas e playlists e as reproduz.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('main_8cpp.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhum resultado encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funções</a> &#124;
+<a href="#var-members">Variáveis</a>  </div>
+  <div class="headertitle"><div class="title">Referência do Arquivo main.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Projeto que organiza músicas e playlists em listas ligadas.  
+<a href="#details">Mais...</a></p>
+<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;cstdlib&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;iterator&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &quot;<a class="el" href="musica_8h_source.html">musica.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lista_ligada_8h_source.html">listaLigada.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="utilitarios_8h_source.html">utilitarios.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="playlist_8h_source.html">playlist.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lista_playlists_8h_source.html">listaPlaylists.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Gráfico de dependência de inclusões para main.cpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="main_8cpp__incl.png" border="0" usemap="#asrc_2main_8cpp" alt=""/></div>
+</div>
+</div>
+<p><a href="main_8cpp_source.html">Vá para o código-fonte desse arquivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
+<tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">O menu principal do programa e todas as suas operações.  <br /></td></tr>
+<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variáveis</h2></td></tr>
+<tr class="memitem:a5c0f3d59a5d3bae1b48c197b65030c0b"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a></td></tr>
+<tr class="separator:a5c0f3d59a5d3bae1b48c197b65030c0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35fd1e3b4b7aa595eca11a2b9d953c31"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a35fd1e3b4b7aa595eca11a2b9d953c31">playing</a> = 0</td></tr>
+<tr class="separator:a35fd1e3b4b7aa595eca11a2b9d953c31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Projeto que organiza músicas e playlists em listas ligadas. </p>
+<dl class="section author"><dt>Autor</dt><dd>Erick Marques </dd></dl>
+<dl class="section version"><dt>Versão</dt><dd>0.1 </dd></dl>
+
+<p class="definition">Definição no arquivo <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+</div><h2 class="groupheader">Funções</h2>
+<a id="ae66f6b31b5ad750f1fe042a706a4e3d4" name="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&#160;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>O menu principal do programa e todas as suas operações. </p>
+
+<p class="definition">Definição na linha <a class="el" href="main_8cpp_source.html#l00029">29</a> do arquivo <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   29</span>          { </div>
+<div class="line"><span class="lineno">   30</span>  <span class="comment">// Cria a lista global de músicas do programa</span></div>
+<div class="line"><span class="lineno">   31</span>  <a class="code hl_class" href="class_linked_list.html">LinkedList</a>* globalList = <span class="keyword">new</span> <a class="code hl_class" href="class_linked_list.html">LinkedList</a>;</div>
+<div class="line"><span class="lineno">   32</span>  <span class="comment">// Cria a lista de armazenar as playlists do programa</span></div>
+<div class="line"><span class="lineno">   33</span>  <a class="code hl_class" href="class_list_of_playlists.html">ListOfPlaylists</a>* playlists = <span class="keyword">new</span> <a class="code hl_class" href="class_list_of_playlists.html">ListOfPlaylists</a>;</div>
+<div class="line"><span class="lineno">   34</span> </div>
+<div class="line"><span class="lineno">   35</span> </div>
+<div class="line"><span class="lineno">   36</span>  <a class="code hl_struct" href="structno.html">no</a>* searchResult = <span class="keyword">nullptr</span>; <span class="comment">// Ponteiro para o nó retornado na busca</span></div>
+<div class="line"><span class="lineno">   37</span>  <span class="keywordtype">size_t</span> index = 0; <span class="comment">// Indice na lista para as interações com o usuário</span></div>
+<div class="line"><span class="lineno">   38</span>  <span class="keywordtype">size_t</span> index2 = 0; <span class="comment">// Indice na lista para as interações com o usuário</span></div>
+<div class="line"><span class="lineno">   39</span>  <span class="comment">// Variáveis temporárias para armazenar as entradas do usuário</span></div>
+<div class="line"><span class="lineno">   40</span>  <a class="code hl_class" href="class_playlist.html">Playlist</a>* tempPlaylist = <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">   41</span>  <a class="code hl_class" href="class_song.html">Song</a> tempSong;</div>
+<div class="line"><span class="lineno">   42</span>  <span class="keywordtype">string</span> tempTitle = <span class="stringliteral">&quot;&quot;</span>; </div>
+<div class="line"><span class="lineno">   43</span>  <span class="keywordtype">string</span> tempArtist = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><span class="lineno">   44</span>  <span class="keywordtype">int</span> option = 1; <span class="comment">// Variável que mantém o programa em loop.</span></div>
+<div class="line"><span class="lineno">   45</span>  <span class="comment">// Executa o menu de funcionalidades enquanto a opção for diferente de 0</span></div>
+<div class="line"><span class="lineno">   46</span>  <span class="keywordflow">while</span> (option != 0) {</div>
+<div class="line"><span class="lineno">   47</span>    <span class="keywordtype">int</span> validcommand = 0;</div>
+<div class="line"><span class="lineno">   48</span>    <a class="code hl_function" href="utilitarios_8h.html#a9015a42613173f7100bbdfcd1ffab163">telaInicial</a>();</div>
+<div class="line"><span class="lineno">   49</span>    <span class="keywordtype">string</span> chooser; <span class="comment">//Declaração da string principal do programa.</span></div>
+<div class="line"><span class="lineno">   50</span>    cin &gt;&gt; chooser; <span class="comment">//Lê a opção escolhida</span></div>
+<div class="line"><span class="lineno">   51</span>    cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;________________________________________&quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   52</span>    <span class="keywordflow">if</span>(chooser == <span class="stringliteral">&quot;add&quot;</span>) { <span class="comment">// Adicionar uma música</span></div>
+<div class="line"><span class="lineno">   53</span>      validcommand = 1;</div>
+<div class="line"><span class="lineno">   54</span>      <span class="comment">// Le as entradas</span></div>
+<div class="line"><span class="lineno">   55</span>      cout &lt;&lt; <span class="stringliteral">&quot;Título da música: &quot;</span>;</div>
+<div class="line"><span class="lineno">   56</span>      cin.ignore(256, <span class="charliteral">&#39;\n&#39;</span>); <span class="comment">//Ignorar o &quot;Enter&quot;</span></div>
+<div class="line"><span class="lineno">   57</span>      getline(cin, tempTitle);</div>
+<div class="line"><span class="lineno">   58</span>      cout &lt;&lt; <span class="stringliteral">&quot;Nome do artista: &quot;</span>;</div>
+<div class="line"><span class="lineno">   59</span>      getline(cin, tempArtist);</div>
+<div class="line"><span class="lineno">   60</span> </div>
+<div class="line"><span class="lineno">   61</span>      <span class="comment">// Atribui num objeto do tipo Song</span></div>
+<div class="line"><span class="lineno">   62</span>      tempSong.<a class="code hl_function" href="class_song.html#a479535dd6ee71e9180ca3b6facb539c8">setTitle</a>(tempTitle);</div>
+<div class="line"><span class="lineno">   63</span>      tempSong.<a class="code hl_function" href="class_song.html#a58b39575e2dd3f5b073e77c55e612121">setArtist</a>(tempArtist);</div>
+<div class="line"><span class="lineno">   64</span> </div>
+<div class="line"><span class="lineno">   65</span>      <span class="comment">// Adiciona ao final da lista global </span></div>
+<div class="line"><span class="lineno">   66</span>      <span class="keywordtype">int</span> endadded = globalList-&gt;<a class="code hl_function" href="class_linked_list.html#acd7d0b683aaf5ea4bb208b806fa2872b">insertEnd</a>(tempSong);</div>
+<div class="line"><span class="lineno">   67</span>      <span class="keywordflow">if</span> (endadded == 1){</div>
+<div class="line"><span class="lineno">   68</span>        cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Música adicionada com sucesso!&quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   69</span>      }</div>
+<div class="line"><span class="lineno">   70</span>    }</div>
+<div class="line"><span class="lineno">   71</span>    <span class="keywordflow">if</span>(chooser == <span class="stringliteral">&quot;del&quot;</span>){ <span class="comment">// Remover uma música</span></div>
+<div class="line"><span class="lineno">   72</span>      validcommand = 1;</div>
+<div class="line"><span class="lineno">   73</span>      <span class="keywordflow">if</span> (globalList-&gt;<a class="code hl_function" href="class_linked_list.html#ac8d24166208694f4fe3cc982307b03fb">getSize</a>() == 0) {</div>
+<div class="line"><span class="lineno">   74</span>        cout &lt;&lt; <span class="stringliteral">&quot;Não existem músicas registradas...&quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   75</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   76</span>        <span class="comment">// Imprime a lista de músicas com seus indices</span></div>
+<div class="line"><span class="lineno">   77</span>        globalList-&gt;<a class="code hl_function" href="class_linked_list.html#af02eaa3695918e657f639996eae613c5">display</a>();</div>
+<div class="line"><span class="lineno">   78</span> </div>
+<div class="line"><span class="lineno">   79</span>        <span class="comment">// Lê a entrada</span></div>
+<div class="line"><span class="lineno">   80</span>        cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Insira o índice da música a ser removida (enumerada acima): &quot;</span>;</div>
+<div class="line"><span class="lineno">   81</span>        cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; <span class="comment">//O input do usuário irá para chkint uma variável do tipo string.</span></div>
+<div class="line"><span class="lineno">   82</span>        index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>)); <span class="comment">//Caso o valor em chkint seja de fato um inteiro, index assumirá o valor dele. </span></div>
+<div class="line"><span class="lineno">   83</span>        <span class="keywordflow">while</span> (index &lt; 1 || index &gt; globalList-&gt;<a class="code hl_function" href="class_linked_list.html#ac8d24166208694f4fe3cc982307b03fb">getSize</a>()) {</div>
+<div class="line"><span class="lineno">   84</span>          cout &lt;&lt; <span class="stringliteral">&quot;Índice inválido! Tente novamente: &quot;</span>;</div>
+<div class="line"><span class="lineno">   85</span>          cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">   86</span>          index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">   87</span>        }</div>
+<div class="line"><span class="lineno">   88</span> </div>
+<div class="line"><span class="lineno">   89</span>        <span class="comment">// Acessa a música pelo indice</span></div>
+<div class="line"><span class="lineno">   90</span>        searchResult = globalList-&gt;<a class="code hl_function" href="class_linked_list.html#a4bb6b62a23c9f9675beb4b1f7f104384">getno</a>(index);</div>
+<div class="line"><span class="lineno">   91</span>        cout &lt;&lt; <span class="stringliteral">&quot;A música &quot;</span> &lt;&lt; searchResult-&gt;<a class="code hl_variable" href="structno.html#a144a437f61f86f76d8fe1887fc615578">data</a>.<a class="code hl_function" href="class_song.html#a3dd577c3abfc309bceea6b0968a68d1c">getTitle</a>()  &lt;&lt; <span class="stringliteral">&quot; - &quot;</span> &lt;&lt; searchResult-&gt;<a class="code hl_variable" href="structno.html#a144a437f61f86f76d8fe1887fc615578">data</a>.<a class="code hl_function" href="class_song.html#a07dcbecc06e304ab0e243d612fae785d">getArtist</a>() &lt;&lt; <span class="stringliteral">&quot; foi deletada.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   92</span> </div>
+<div class="line"><span class="lineno">   93</span>        <span class="comment">// Remove de todas as playlists</span></div>
+<div class="line"><span class="lineno">   94</span>        <span class="keywordflow">if</span> (playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>() &gt; 0) {</div>
+<div class="line"><span class="lineno">   95</span>          playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#ac9af0f613bf7a18833a6520cc405f660">removeFromAll</a>(searchResult-&gt;<a class="code hl_variable" href="structno.html#a144a437f61f86f76d8fe1887fc615578">data</a>);</div>
+<div class="line"><span class="lineno">   96</span>        }</div>
+<div class="line"><span class="lineno">   97</span> </div>
+<div class="line"><span class="lineno">   98</span>        <span class="comment">// Remove da lista global</span></div>
+<div class="line"><span class="lineno">   99</span>        globalList-&gt;<a class="code hl_function" href="class_linked_list.html#a4cf9d1fdf67868d502a7086c245ee3b6">removePosition</a>(index);</div>
+<div class="line"><span class="lineno">  100</span>      }</div>
+<div class="line"><span class="lineno">  101</span>    }</div>
+<div class="line"><span class="lineno">  102</span>    <span class="keywordflow">if</span>(chooser == <span class="stringliteral">&quot;list&quot;</span>){ <span class="comment">// Listar todas as músicas</span></div>
+<div class="line"><span class="lineno">  103</span>      validcommand = 1;</div>
+<div class="line"><span class="lineno">  104</span>      <span class="comment">// Processo para garantir que há músicas adicionadas</span></div>
+<div class="line"><span class="lineno">  105</span>      <span class="keywordflow">if</span> (globalList-&gt;<a class="code hl_function" href="class_linked_list.html#ac8d24166208694f4fe3cc982307b03fb">getSize</a>() == 0) {</div>
+<div class="line"><span class="lineno">  106</span>        cout &lt;&lt; <span class="stringliteral">&quot;Ainda não há nada aqui. Experimente adicionar algumas músicas.&quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  107</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  108</span>        cout &lt;&lt; <span class="stringliteral">&quot;Músicas armazenadas:&quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  109</span>        <span class="comment">// Imprime a lista de músicas com seus indices</span></div>
+<div class="line"><span class="lineno">  110</span>        globalList-&gt;<a class="code hl_function" href="class_linked_list.html#af02eaa3695918e657f639996eae613c5">display</a>();</div>
+<div class="line"><span class="lineno">  111</span>        cout &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  112</span>      }</div>
+<div class="line"><span class="lineno">  113</span>    }</div>
+<div class="line"><span class="lineno">  114</span>    <span class="keywordflow">if</span>(chooser == <span class="stringliteral">&quot;playp&quot;</span>){</div>
+<div class="line"><span class="lineno">  115</span>      <span class="comment">// Processo para garantir que há playlists adicionadas</span></div>
+<div class="line"><span class="lineno">  116</span>      validcommand = 1;</div>
+<div class="line"><span class="lineno">  117</span>      <span class="keywordflow">if</span> (playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>() == 0) {</div>
+<div class="line"><span class="lineno">  118</span>        cout &lt;&lt; <span class="stringliteral">&quot;Ops, nenhuma playlist foi adicionada até o momento, tente criar uma! &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  119</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  120</span>        <span class="comment">// Lê a entrada</span></div>
+<div class="line"><span class="lineno">  121</span>        cout &lt;&lt; <span class="stringliteral">&quot;Playlists disponíveis: &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  122</span>        playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a1d919017a5229f00491b047384eceb0a">display</a>();</div>
+<div class="line"><span class="lineno">  123</span>        cout &lt;&lt; <span class="stringliteral">&quot;Insira o índice da playlist desejada: &quot;</span>;</div>
+<div class="line"><span class="lineno">  124</span>        cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  125</span>        index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  126</span>        cout &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  127</span>        <span class="comment">// Processo para garantir que a entrada é válida</span></div>
+<div class="line"><span class="lineno">  128</span>        <span class="keywordflow">while</span> (index &lt; 1 || index &gt; playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>()) {</div>
+<div class="line"><span class="lineno">  129</span>          cout &lt;&lt; <span class="stringliteral">&quot;Índice inválido! Tente novamente: &quot;</span>;</div>
+<div class="line"><span class="lineno">  130</span>          cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  131</span>        index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  132</span>        }</div>
+<div class="line"><span class="lineno">  133</span> </div>
+<div class="line"><span class="lineno">  134</span>        <span class="comment">// Obtém a playlist pelo índice</span></div>
+<div class="line"><span class="lineno">  135</span>        tempPlaylist = playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#ad3d7068d450c1d177b71c1005f874319">getPlaylist</a>(index);</div>
+<div class="line"><span class="lineno">  136</span>           </div>
+<div class="line"><span class="lineno">  137</span>        <span class="comment">// Processo para garantir que há músicas adicionadas</span></div>
+<div class="line"><span class="lineno">  138</span>        <span class="keywordflow">if</span> (tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">getSongs</a>()-&gt;<a class="code hl_function" href="class_linked_list.html#ac8d24166208694f4fe3cc982307b03fb">getSize</a>() == 0) {</div>
+<div class="line"><span class="lineno">  139</span>          cout &lt;&lt; <span class="stringliteral">&quot;Ops, não há músicas nessa playlist, adicione algumas músicas e tente novamente! &quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  140</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  141</span>          <span class="comment">// Imprime a lista de músicas com seus indices</span></div>
+<div class="line"><span class="lineno">  142</span>          tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#ac749def3329225790a8069ea61f808a4">displayAllSongs</a>(tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">getSongs</a>()-&gt;<a class="code hl_function" href="class_linked_list.html#a248422bb6a4e6516ac9905bcb250f57c">getHead</a>());</div>
+<div class="line"><span class="lineno">  143</span>            </div>
+<div class="line"><span class="lineno">  144</span>          <span class="comment">// Lê a entrada</span></div>
+<div class="line"><span class="lineno">  145</span>          cout &lt;&lt; <span class="stringliteral">&quot;Insira o índice da música que será tocada (consulte a lista de músicas): &quot;</span>;</div>
+<div class="line"><span class="lineno">  146</span>          cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  147</span>          index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  148</span> </div>
+<div class="line"><span class="lineno">  149</span>          <span class="comment">// Processo para garantir que a entrada é válida</span></div>
+<div class="line"><span class="lineno">  150</span>          <span class="keywordflow">while</span> (index &lt; 1 || index &gt; tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">getSongs</a>()-&gt;<a class="code hl_function" href="class_linked_list.html#ac8d24166208694f4fe3cc982307b03fb">getSize</a>()) {</div>
+<div class="line"><span class="lineno">  151</span>            cout &lt;&lt; <span class="stringliteral">&quot;Índice inválido! Tente novamente: &quot;</span>;</div>
+<div class="line"><span class="lineno">  152</span>            cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  153</span>            index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  154</span>          }</div>
+<div class="line"><span class="lineno">  155</span>            cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Tocando agora: &quot;</span>;</div>
+<div class="line"><span class="lineno">  156</span>            tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a853345e85d6898253897932b64471a29">displayOne</a>(tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">getSongs</a>()-&gt;<a class="code hl_function" href="class_linked_list.html#a248422bb6a4e6516ac9905bcb250f57c">getHead</a>(), index);</div>
+<div class="line"><span class="lineno">  157</span>            <a class="code hl_variable" href="main_8cpp.html#a35fd1e3b4b7aa595eca11a2b9d953c31">playing</a> = 1;</div>
+<div class="line"><span class="lineno">  158</span>        }</div>
+<div class="line"><span class="lineno">  159</span>      }</div>
+<div class="line"><span class="lineno">  160</span>    }</div>
+<div class="line"><span class="lineno">  161</span>    <span class="keywordflow">if</span>(chooser == <span class="stringliteral">&quot;playn&quot;</span>){</div>
+<div class="line"><span class="lineno">  162</span>      <span class="comment">// Processo para garantir que há playlists adicionadas</span></div>
+<div class="line"><span class="lineno">  163</span>      validcommand = 1;</div>
+<div class="line"><span class="lineno">  164</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="main_8cpp.html#a35fd1e3b4b7aa595eca11a2b9d953c31">playing</a> == 0){</div>
+<div class="line"><span class="lineno">  165</span>        cout &lt;&lt; <span class="stringliteral">&quot;Nada está tocando no momento...&quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  166</span>      }</div>
+<div class="line"><span class="lineno">  167</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="main_8cpp.html#a35fd1e3b4b7aa595eca11a2b9d953c31">playing</a> == 1){</div>
+<div class="line"><span class="lineno">  168</span>        <span class="keywordflow">if</span> (playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>() == 0) {</div>
+<div class="line"><span class="lineno">  169</span>          cout &lt;&lt; <span class="stringliteral">&quot;Ops, nenhuma playlist foi adicionada até o momento, tente criar uma! &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  170</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  171</span>          index++;</div>
+<div class="line"><span class="lineno">  172</span>        }</div>
+<div class="line"><span class="lineno">  173</span>        <span class="keywordflow">if</span> (index &gt; tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">getSongs</a>()-&gt;<a class="code hl_function" href="class_linked_list.html#ac8d24166208694f4fe3cc982307b03fb">getSize</a>()) {</div>
+<div class="line"><span class="lineno">  174</span>          cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Sua playlist acabou, mas a música nunca acaba, recomeçando! :D&quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  175</span>          index = 1;</div>
+<div class="line"><span class="lineno">  176</span>        }</div>
+<div class="line"><span class="lineno">  177</span>        cout &lt;&lt; <span class="stringliteral">&quot;Tocando agora: &quot;</span>;</div>
+<div class="line"><span class="lineno">  178</span>        tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a853345e85d6898253897932b64471a29">displayOne</a>(tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">getSongs</a>()-&gt;<a class="code hl_function" href="class_linked_list.html#a248422bb6a4e6516ac9905bcb250f57c">getHead</a>(), index);</div>
+<div class="line"><span class="lineno">  179</span>        cout &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  180</span>      }</div>
+<div class="line"><span class="lineno">  181</span>    }</div>
+<div class="line"><span class="lineno">  182</span>    <span class="keywordflow">if</span>(chooser == <span class="stringliteral">&quot;playb&quot;</span>){</div>
+<div class="line"><span class="lineno">  183</span>      <span class="comment">// Processo para garantir que há playlists adicionadas</span></div>
+<div class="line"><span class="lineno">  184</span>      validcommand = 1;</div>
+<div class="line"><span class="lineno">  185</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="main_8cpp.html#a35fd1e3b4b7aa595eca11a2b9d953c31">playing</a> == 0){</div>
+<div class="line"><span class="lineno">  186</span>        cout &lt;&lt; <span class="stringliteral">&quot;Nada está tocando no momento...&quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  187</span>      }</div>
+<div class="line"><span class="lineno">  188</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="main_8cpp.html#a35fd1e3b4b7aa595eca11a2b9d953c31">playing</a> == 1){</div>
+<div class="line"><span class="lineno">  189</span>        <span class="keywordflow">if</span> (playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>() == 0) {</div>
+<div class="line"><span class="lineno">  190</span>          cout &lt;&lt; <span class="stringliteral">&quot;Ops, nenhuma playlist foi adicionada até o momento, tente criar uma! &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  191</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  192</span>          index--;</div>
+<div class="line"><span class="lineno">  193</span>        }</div>
+<div class="line"><span class="lineno">  194</span>        <span class="keywordflow">if</span> (index &lt; 1) {</div>
+<div class="line"><span class="lineno">  195</span>          cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Você está no início... Assim como o tempo, você não pode voltar atrás...&quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  196</span>          index = 1;</div>
+<div class="line"><span class="lineno">  197</span>        }</div>
+<div class="line"><span class="lineno">  198</span>        cout &lt;&lt; <span class="stringliteral">&quot;Tocando agora: &quot;</span>;</div>
+<div class="line"><span class="lineno">  199</span>        tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a853345e85d6898253897932b64471a29">displayOne</a>(tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">getSongs</a>()-&gt;<a class="code hl_function" href="class_linked_list.html#a248422bb6a4e6516ac9905bcb250f57c">getHead</a>(), index);</div>
+<div class="line"><span class="lineno">  200</span>        cout &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  201</span>      }</div>
+<div class="line"><span class="lineno">  202</span>    }</div>
+<div class="line"><span class="lineno">  203</span>    <span class="keywordflow">if</span>(chooser == <span class="stringliteral">&quot;plays&quot;</span>){</div>
+<div class="line"><span class="lineno">  204</span>      validcommand = 1;</div>
+<div class="line"><span class="lineno">  205</span>      <a class="code hl_function" href="utilitarios_8h.html#a6df378d98daa0018fcd526db19fe47f8">stopPlaying</a>(<a class="code hl_variable" href="main_8cpp.html#a35fd1e3b4b7aa595eca11a2b9d953c31">playing</a>, index);</div>
+<div class="line"><span class="lineno">  206</span>    }</div>
+<div class="line"><span class="lineno">  207</span>    <span class="keywordflow">if</span>(chooser == <span class="stringliteral">&quot;search&quot;</span>) { <span class="comment">// Buscar uma música </span></div>
+<div class="line"><span class="lineno">  208</span>      validcommand = 1;</div>
+<div class="line"><span class="lineno">  209</span>      cout &lt;&lt; <span class="stringliteral">&quot;Título da música: &quot;</span>;</div>
+<div class="line"><span class="lineno">  210</span>      cin.ignore(256, <span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><span class="lineno">  211</span>      getline(cin, tempTitle);</div>
+<div class="line"><span class="lineno">  212</span>      cout &lt;&lt; <span class="stringliteral">&quot;Nome do artista: &quot;</span>;</div>
+<div class="line"><span class="lineno">  213</span>      getline(cin, tempArtist);</div>
+<div class="line"><span class="lineno">  214</span> </div>
+<div class="line"><span class="lineno">  215</span>      <span class="comment">// Atribui num objeto do tipo Song</span></div>
+<div class="line"><span class="lineno">  216</span>      tempSong.<a class="code hl_function" href="class_song.html#a479535dd6ee71e9180ca3b6facb539c8">setTitle</a>(tempTitle);</div>
+<div class="line"><span class="lineno">  217</span>      tempSong.<a class="code hl_function" href="class_song.html#a58b39575e2dd3f5b073e77c55e612121">setArtist</a>(tempArtist);</div>
+<div class="line"><span class="lineno">  218</span>        </div>
+<div class="line"><span class="lineno">  219</span>      <span class="comment">// Efetua a busca</span></div>
+<div class="line"><span class="lineno">  220</span>      searchResult = globalList-&gt;<a class="code hl_function" href="class_linked_list.html#a01efd552dee7a5ca391060ee68042e3e">search</a>(tempSong);</div>
+<div class="line"><span class="lineno">  221</span> </div>
+<div class="line"><span class="lineno">  222</span>      <span class="comment">// Da o retorno</span></div>
+<div class="line"><span class="lineno">  223</span>      <span class="keywordflow">if</span> (searchResult == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><span class="lineno">  224</span>        cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Essa música não foi adicionada! Verifique se você digitou corretamente ou adicione a música antes de tentar novamente.&quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  225</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  226</span>        cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;A música &quot;</span> &lt;&lt; searchResult-&gt;<a class="code hl_variable" href="structno.html#a144a437f61f86f76d8fe1887fc615578">data</a>.<a class="code hl_function" href="class_song.html#a3dd577c3abfc309bceea6b0968a68d1c">getTitle</a>() &lt;&lt; <span class="stringliteral">&quot; - &quot;</span> &lt;&lt; searchResult-&gt;<a class="code hl_variable" href="structno.html#a144a437f61f86f76d8fe1887fc615578">data</a>.<a class="code hl_function" href="class_song.html#a07dcbecc06e304ab0e243d612fae785d">getArtist</a>() &lt;&lt; <span class="stringliteral">&quot; está armazenada!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  227</span>      }</div>
+<div class="line"><span class="lineno">  228</span>      cout &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  229</span>    }</div>
+<div class="line"><span class="lineno">  230</span>    <span class="keywordflow">if</span>(chooser == <span class="stringliteral">&quot;addp&quot;</span>) { <span class="comment">// Adicionar uma playlist</span></div>
+<div class="line"><span class="lineno">  231</span>      validcommand = 1;</div>
+<div class="line"><span class="lineno">  232</span>      cout &lt;&lt; <span class="stringliteral">&quot;Nome da playlist: &quot;</span>;</div>
+<div class="line"><span class="lineno">  233</span>      cin.ignore(256, <span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><span class="lineno">  234</span>      getline(cin, tempTitle);</div>
+<div class="line"><span class="lineno">  235</span> </div>
+<div class="line"><span class="lineno">  236</span>      <span class="comment">// Aloca a nova playlist</span></div>
+<div class="line"><span class="lineno">  237</span>      tempPlaylist = <span class="keyword">new</span> <a class="code hl_class" href="class_playlist.html">Playlist</a>;</div>
+<div class="line"><span class="lineno">  238</span>        </div>
+<div class="line"><span class="lineno">  239</span>      <span class="comment">// Adiciona o nome escolhido</span></div>
+<div class="line"><span class="lineno">  240</span>      tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a1b80e7e123426e1ecab29b8955d0f704">setName</a>(tempTitle);</div>
+<div class="line"><span class="lineno">  241</span> </div>
+<div class="line"><span class="lineno">  242</span>      <span class="comment">// Insere na lista</span></div>
+<div class="line"><span class="lineno">  243</span>      playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a45ec445702d327bbaa2f09b08e0712f4">insertPlaylist</a>(tempPlaylist);</div>
+<div class="line"><span class="lineno">  244</span> </div>
+<div class="line"><span class="lineno">  245</span>      cout &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  246</span>    }</div>
+<div class="line"><span class="lineno">  247</span>    <span class="keywordflow">if</span>(chooser == <span class="stringliteral">&quot;delp&quot;</span>) { <span class="comment">// Remover uma playlist</span></div>
+<div class="line"><span class="lineno">  248</span>      <span class="comment">// Processo para garantir que há playlists adicionadas</span></div>
+<div class="line"><span class="lineno">  249</span>      validcommand = 1;</div>
+<div class="line"><span class="lineno">  250</span>      <span class="keywordflow">if</span> (playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>() == 0) {</div>
+<div class="line"><span class="lineno">  251</span>        cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Ops, nenhuma playlist foi adicionada até o momento, tente criar uma! &quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  252</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  253</span>        <span class="comment">// Imprime a lista de playlists com seus indices</span></div>
+<div class="line"><span class="lineno">  254</span>        cout &lt;&lt; <span class="stringliteral">&quot;Playlists registradas: &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  255</span>        playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a1d919017a5229f00491b047384eceb0a">display</a>();</div>
+<div class="line"><span class="lineno">  256</span> </div>
+<div class="line"><span class="lineno">  257</span>        <span class="comment">// Lê a entrada</span></div>
+<div class="line"><span class="lineno">  258</span>        cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Insira o índice da playlist a ser removida: &quot;</span>;</div>
+<div class="line"><span class="lineno">  259</span>        cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  260</span>        index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  261</span>        <span class="comment">// Processo para garantir que a entrada é válida</span></div>
+<div class="line"><span class="lineno">  262</span>        <span class="keywordflow">while</span> (index &lt; 1 || index &gt; playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>()) {</div>
+<div class="line"><span class="lineno">  263</span>          cout &lt;&lt; <span class="stringliteral">&quot;Índice inválido! Tente novamente: &quot;</span>;</div>
+<div class="line"><span class="lineno">  264</span>          cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  265</span>          index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  266</span>        }</div>
+<div class="line"><span class="lineno">  267</span>          </div>
+<div class="line"><span class="lineno">  268</span>        <span class="comment">// Remove a playlist</span></div>
+<div class="line"><span class="lineno">  269</span>        playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a50611e6b7d261e8035aac5b78cb2ad6c">removePlaylist</a>(index);</div>
+<div class="line"><span class="lineno">  270</span>        cout &lt;&lt; <span class="stringliteral">&quot;Remoção concluída com sucesso.&quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  271</span>      }</div>
+<div class="line"><span class="lineno">  272</span>    }</div>
+<div class="line"><span class="lineno">  273</span>    <span class="keywordflow">if</span>(chooser == <span class="stringliteral">&quot;listp&quot;</span>) { <span class="comment">// Listar todas as playlists</span></div>
+<div class="line"><span class="lineno">  274</span>      <span class="comment">// Processo para garantir que as playlists foram adicionadas.</span></div>
+<div class="line"><span class="lineno">  275</span>      validcommand = 1;</div>
+<div class="line"><span class="lineno">  276</span>      <span class="keywordflow">if</span> (playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>() == 0) {</div>
+<div class="line"><span class="lineno">  277</span>        cout &lt;&lt; endl &lt;&lt;<span class="stringliteral">&quot;Ops, nenhuma playlist foi adicionada até o momento, tente criar uma! &quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  278</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  279</span>        cout &lt;&lt; <span class="stringliteral">&quot;Playlists armazenadas atualmente:&quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  280</span>        <span class="comment">// Imprime a lista de músicas com seus indices</span></div>
+<div class="line"><span class="lineno">  281</span>        playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a1d919017a5229f00491b047384eceb0a">display</a>();</div>
+<div class="line"><span class="lineno">  282</span>      }</div>
+<div class="line"><span class="lineno">  283</span>    }</div>
+<div class="line"><span class="lineno">  284</span>    <span class="keywordflow">if</span>(chooser == <span class="stringliteral">&quot;addmp&quot;</span>){ <span class="comment">// Adicionar música a uma playlist</span></div>
+<div class="line"><span class="lineno">  285</span>      <span class="comment">// Processo para garantir que há playlists adicionadas</span></div>
+<div class="line"><span class="lineno">  286</span>      validcommand = 1;</div>
+<div class="line"><span class="lineno">  287</span>      <span class="keywordflow">if</span> (playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>() == 0) {</div>
+<div class="line"><span class="lineno">  288</span>        cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Ops, nenhuma playlist foi adicionada até o momento, tente criar uma! &quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  289</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  290</span>        <span class="comment">// Lê a entrada</span></div>
+<div class="line"><span class="lineno">  291</span>        cout &lt;&lt; <span class="stringliteral">&quot;Playlists disponíveis: &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  292</span>        playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a1d919017a5229f00491b047384eceb0a">display</a>();</div>
+<div class="line"><span class="lineno">  293</span>        cout &lt;&lt; <span class="stringliteral">&quot;Insira o índice da playlist desejada (enumerada acima): &quot;</span>;</div>
+<div class="line"><span class="lineno">  294</span>        <span class="keywordtype">int</span> validstuff = 0;</div>
+<div class="line"><span class="lineno">  295</span>        <span class="keywordtype">int</span> invalidstuff = 0;</div>
+<div class="line"><span class="lineno">  296</span>        <span class="keywordflow">while</span> (validstuff == 0){</div>
+<div class="line"><span class="lineno">  297</span>          <span class="keywordflow">if</span>(invalidstuff == 1){</div>
+<div class="line"><span class="lineno">  298</span>            cout &lt;&lt; <span class="stringliteral">&quot;Indice inválido! Tente Novamente: &quot;</span>;</div>
+<div class="line"><span class="lineno">  299</span>          }</div>
+<div class="line"><span class="lineno">  300</span>          cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  301</span>          <span class="keywordflow">if</span> (isdigit(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>[0]) == <span class="keyword">true</span>) {</div>
+<div class="line"><span class="lineno">  302</span>            index = stoi(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>);</div>
+<div class="line"><span class="lineno">  303</span>            validstuff = 1;</div>
+<div class="line"><span class="lineno">  304</span>          } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  305</span>            validstuff = 0;</div>
+<div class="line"><span class="lineno">  306</span>            invalidstuff = 1;</div>
+<div class="line"><span class="lineno">  307</span>          }</div>
+<div class="line"><span class="lineno">  308</span>        }</div>
+<div class="line"><span class="lineno">  309</span>        <span class="comment">// Processo para garantir que a entrada é válida</span></div>
+<div class="line"><span class="lineno">  310</span>        <span class="keywordflow">while</span> (index &lt; 1 || index &gt; playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>()) {</div>
+<div class="line"><span class="lineno">  311</span>          cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Índice inválido! Tente novamente: &quot;</span>;</div>
+<div class="line"><span class="lineno">  312</span>          cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  313</span>          index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  314</span>        }</div>
+<div class="line"><span class="lineno">  315</span> </div>
+<div class="line"><span class="lineno">  316</span>        <span class="comment">// Obtém a playlist pelo índice</span></div>
+<div class="line"><span class="lineno">  317</span>        tempPlaylist = playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#ad3d7068d450c1d177b71c1005f874319">getPlaylist</a>(index);</div>
+<div class="line"><span class="lineno">  318</span>        cout &lt;&lt; <span class="stringliteral">&quot;Playlist selecionada: &quot;</span> &lt;&lt; tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a880984e292d0002d3daa763c386ad963">getName</a>() &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  319</span> </div>
+<div class="line"><span class="lineno">  320</span>        <span class="comment">// Le as entradas</span></div>
+<div class="line"><span class="lineno">  321</span>        cout &lt;&lt; <span class="stringliteral">&quot;Título da música: &quot;</span>;</div>
+<div class="line"><span class="lineno">  322</span>        cin.ignore(256, <span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><span class="lineno">  323</span>        getline(cin, tempTitle);</div>
+<div class="line"><span class="lineno">  324</span>        cout &lt;&lt; <span class="stringliteral">&quot;Nome do artista: &quot;</span>;</div>
+<div class="line"><span class="lineno">  325</span>        getline(cin, tempArtist);</div>
+<div class="line"><span class="lineno">  326</span>        cout &lt;&lt; <span class="stringliteral">&quot;Em qual posição deseja adicionar (verifique a lista de músicas da playlist): &quot;</span>;</div>
+<div class="line"><span class="lineno">  327</span>        validstuff = 0;</div>
+<div class="line"><span class="lineno">  328</span>        <span class="keywordflow">while</span> (validstuff == 0){</div>
+<div class="line"><span class="lineno">  329</span>          cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  330</span>          <span class="keywordflow">if</span> (isdigit(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>[0]) == <span class="keyword">true</span>) {</div>
+<div class="line"><span class="lineno">  331</span>            index = stoi(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>);</div>
+<div class="line"><span class="lineno">  332</span>            validstuff = 1;</div>
+<div class="line"><span class="lineno">  333</span>          } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  334</span>            cout &lt;&lt; <span class="stringliteral">&quot;Índice inválido! Tente novamente: &quot;</span>;</div>
+<div class="line"><span class="lineno">  335</span>            validstuff = 0;</div>
+<div class="line"><span class="lineno">  336</span>          }</div>
+<div class="line"><span class="lineno">  337</span>        }</div>
+<div class="line"><span class="lineno">  338</span> </div>
+<div class="line"><span class="lineno">  339</span>        <span class="comment">// Processo para garantir que a posição é válida</span></div>
+<div class="line"><span class="lineno">  340</span>        <span class="keywordflow">while</span> (index &lt; 1) {</div>
+<div class="line"><span class="lineno">  341</span>          cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Posição inválida. Tente novamente: &quot;</span>;</div>
+<div class="line"><span class="lineno">  342</span>          cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  343</span>          index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  344</span>        }</div>
+<div class="line"><span class="lineno">  345</span>        <span class="comment">// Atribui num objeto do tipo Song</span></div>
+<div class="line"><span class="lineno">  346</span>        tempSong.<a class="code hl_function" href="class_song.html#a479535dd6ee71e9180ca3b6facb539c8">setTitle</a>(tempTitle);</div>
+<div class="line"><span class="lineno">  347</span>        tempSong.<a class="code hl_function" href="class_song.html#a58b39575e2dd3f5b073e77c55e612121">setArtist</a>(tempArtist);</div>
+<div class="line"><span class="lineno">  348</span>          </div>
+<div class="line"><span class="lineno">  349</span>        <span class="comment">// Busca pela música armazenada</span></div>
+<div class="line"><span class="lineno">  350</span>        searchResult = globalList-&gt;<a class="code hl_function" href="class_linked_list.html#a01efd552dee7a5ca391060ee68042e3e">search</a>(tempSong);</div>
+<div class="line"><span class="lineno">  351</span>        <span class="keywordflow">if</span> (searchResult == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><span class="lineno">  352</span>          cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Ops, a música não foi adicionada até o momento, por favor, adicione-a e tente novamente! &quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  353</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  354</span>          <span class="comment">// Adiciona na playlist</span></div>
+<div class="line"><span class="lineno">  355</span>          tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a96d670a87ad7adbcf2bac35293c18db9">insertSong</a>(index, tempSong);</div>
+<div class="line"><span class="lineno">  356</span>          cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Música adicionada à playlist &#39;&quot;</span> &lt;&lt; tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a880984e292d0002d3daa763c386ad963">getName</a>() &lt;&lt; <span class="stringliteral">&quot;&#39;&quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  357</span>        }</div>
+<div class="line"><span class="lineno">  358</span>      }</div>
+<div class="line"><span class="lineno">  359</span>    }</div>
+<div class="line"><span class="lineno">  360</span>    <span class="keywordflow">if</span>(chooser == <span class="stringliteral">&quot;delmp&quot;</span>){ <span class="comment">// Remover música de uma playlist</span></div>
+<div class="line"><span class="lineno">  361</span>      <span class="comment">// Processo para garantir que há playlists adicionadas</span></div>
+<div class="line"><span class="lineno">  362</span>      validcommand = 1;</div>
+<div class="line"><span class="lineno">  363</span>      <span class="keywordflow">if</span> (playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>() == 0) {</div>
+<div class="line"><span class="lineno">  364</span>        cout &lt;&lt; <span class="stringliteral">&quot;Ops, nenhuma playlist foi adicionada até o momento, tente criar uma!&quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  365</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  366</span>        <span class="comment">// Lê a entrada</span></div>
+<div class="line"><span class="lineno">  367</span>        cout &lt;&lt; <span class="stringliteral">&quot;Playlists disponíveis: &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  368</span>        playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a1d919017a5229f00491b047384eceb0a">display</a>();</div>
+<div class="line"><span class="lineno">  369</span>        cout &lt;&lt; <span class="stringliteral">&quot;Insira o índice da playlist desejada: &quot;</span>;</div>
+<div class="line"><span class="lineno">  370</span>        cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  371</span>        index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  372</span> </div>
+<div class="line"><span class="lineno">  373</span>        <span class="comment">// Processo para garantir que a entrada é válida</span></div>
+<div class="line"><span class="lineno">  374</span>        <span class="keywordflow">while</span> (index &lt; 1 || index &gt; playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>()) {</div>
+<div class="line"><span class="lineno">  375</span>          cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Índice inválido! Tente novamente: &quot;</span>;</div>
+<div class="line"><span class="lineno">  376</span>          cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  377</span>          index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  378</span>        }</div>
+<div class="line"><span class="lineno">  379</span> </div>
+<div class="line"><span class="lineno">  380</span>        <span class="comment">// Obtém a playlist pelo índice</span></div>
+<div class="line"><span class="lineno">  381</span>        tempPlaylist = playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#ad3d7068d450c1d177b71c1005f874319">getPlaylist</a>(index);</div>
+<div class="line"><span class="lineno">  382</span>        cout &lt;&lt; <span class="stringliteral">&quot;Playlist selecionada: &quot;</span> &lt;&lt; tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a880984e292d0002d3daa763c386ad963">getName</a>() &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  383</span> </div>
+<div class="line"><span class="lineno">  384</span>        <span class="comment">// Processo para garantir que há músicas adicionadas</span></div>
+<div class="line"><span class="lineno">  385</span>        <span class="keywordflow">if</span> (tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">getSongs</a>()-&gt;<a class="code hl_function" href="class_linked_list.html#ac8d24166208694f4fe3cc982307b03fb">getSize</a>() == 0) {</div>
+<div class="line"><span class="lineno">  386</span>          cout &lt;&lt; <span class="stringliteral">&quot;Ops, a música não foi adicionada até o momento, por favor, adicione-a e tente novamente! &quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  387</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  388</span>          <span class="comment">// Imprime a lista de músicas com seus indices</span></div>
+<div class="line"><span class="lineno">  389</span>          tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#ac749def3329225790a8069ea61f808a4">displayAllSongs</a>(tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">getSongs</a>()-&gt;<a class="code hl_function" href="class_linked_list.html#a248422bb6a4e6516ac9905bcb250f57c">getHead</a>());</div>
+<div class="line"><span class="lineno">  390</span>            </div>
+<div class="line"><span class="lineno">  391</span>          <span class="comment">// Lê a entrada</span></div>
+<div class="line"><span class="lineno">  392</span>          cout &lt;&lt; <span class="stringliteral">&quot;Insira o índice da música a ser removida (consulte a lista de músicas): &quot;</span>;</div>
+<div class="line"><span class="lineno">  393</span>          cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  394</span>          index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  395</span> </div>
+<div class="line"><span class="lineno">  396</span>          <span class="comment">// Processo para garantir que a entrada é válida</span></div>
+<div class="line"><span class="lineno">  397</span>          <span class="keywordflow">while</span> (index &lt; 1 || index &gt; tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">getSongs</a>()-&gt;<a class="code hl_function" href="class_linked_list.html#ac8d24166208694f4fe3cc982307b03fb">getSize</a>()) {</div>
+<div class="line"><span class="lineno">  398</span>            cout &lt;&lt; <span class="stringliteral">&quot;Índice inválido! Tente novamente: &quot;</span>;</div>
+<div class="line"><span class="lineno">  399</span>            cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  400</span>            index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  401</span>          }</div>
+<div class="line"><span class="lineno">  402</span>            </div>
+<div class="line"><span class="lineno">  403</span>          <span class="comment">// Remove a música</span></div>
+<div class="line"><span class="lineno">  404</span>          tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a3cff70256b145c3c76ec024d3a00297c">removeSong</a>(index);</div>
+<div class="line"><span class="lineno">  405</span>          cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Música removida da playlist &#39;&quot;</span> &lt;&lt; tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a880984e292d0002d3daa763c386ad963">getName</a>() &lt;&lt; <span class="stringliteral">&quot;&#39;&quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  406</span>        }</div>
+<div class="line"><span class="lineno">  407</span>      }</div>
+<div class="line"><span class="lineno">  408</span>    }</div>
+<div class="line"><span class="lineno">  409</span>    <span class="keywordflow">if</span>(chooser == <span class="stringliteral">&quot;mmp&quot;</span>){ <span class="comment">// Mover música numa playlist</span></div>
+<div class="line"><span class="lineno">  410</span>      <span class="comment">// Processo para garantir que há playlists adicionadas</span></div>
+<div class="line"><span class="lineno">  411</span>      validcommand = 1;</div>
+<div class="line"><span class="lineno">  412</span>      <span class="keywordflow">if</span> (playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>() == 0) {</div>
+<div class="line"><span class="lineno">  413</span>        cout &lt;&lt; <span class="stringliteral">&quot;Ops, nenhuma playlist foi adicionada até o momento, tente criar uma! &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  414</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  415</span>        <span class="comment">// Lê a entrada</span></div>
+<div class="line"><span class="lineno">  416</span>        cout &lt;&lt; <span class="stringliteral">&quot;Playlists disponíveis: &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  417</span>        playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a1d919017a5229f00491b047384eceb0a">display</a>();</div>
+<div class="line"><span class="lineno">  418</span>        cout &lt;&lt; <span class="stringliteral">&quot;Insira o índice da playlist desejada: &quot;</span>;</div>
+<div class="line"><span class="lineno">  419</span>        cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  420</span>        index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  421</span> </div>
+<div class="line"><span class="lineno">  422</span>        <span class="comment">// Processo para garantir que a entrada é válida</span></div>
+<div class="line"><span class="lineno">  423</span>        <span class="keywordflow">while</span> (index &lt; 1 || index &gt; playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>()) {</div>
+<div class="line"><span class="lineno">  424</span>          cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Índice inválido! Tente novamente: &quot;</span>;</div>
+<div class="line"><span class="lineno">  425</span>          cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  426</span>          index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  427</span>        }</div>
+<div class="line"><span class="lineno">  428</span> </div>
+<div class="line"><span class="lineno">  429</span>        <span class="comment">// Obtém a playlist pelo índice</span></div>
+<div class="line"><span class="lineno">  430</span>        tempPlaylist = playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#ad3d7068d450c1d177b71c1005f874319">getPlaylist</a>(index);</div>
+<div class="line"><span class="lineno">  431</span>        cout &lt;&lt; <span class="stringliteral">&quot;Playlist selecionada: &quot;</span> &lt;&lt; tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a880984e292d0002d3daa763c386ad963">getName</a>() &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  432</span> </div>
+<div class="line"><span class="lineno">  433</span>        <span class="comment">// Processo para garantir que há músicas adicionadas</span></div>
+<div class="line"><span class="lineno">  434</span>        <span class="keywordflow">if</span> (tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">getSongs</a>()-&gt;<a class="code hl_function" href="class_linked_list.html#ac8d24166208694f4fe3cc982307b03fb">getSize</a>() == 0) {</div>
+<div class="line"><span class="lineno">  435</span>          cout &lt;&lt; <span class="stringliteral">&quot;Ops, a música não foi adicionada até o momento, por favor, adicione-a e tente novamente! &quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  436</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  437</span>          <span class="comment">// Imprime a lista de músicas com seus indices</span></div>
+<div class="line"><span class="lineno">  438</span>          cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Músicas nesta playlist: &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  439</span>          tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#ac749def3329225790a8069ea61f808a4">displayAllSongs</a>(tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">getSongs</a>()-&gt;<a class="code hl_function" href="class_linked_list.html#a248422bb6a4e6516ac9905bcb250f57c">getHead</a>());</div>
+<div class="line"><span class="lineno">  440</span>            </div>
+<div class="line"><span class="lineno">  441</span>          <span class="comment">// Lê a entrada</span></div>
+<div class="line"><span class="lineno">  442</span>          cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Insira o índice da música a ser movida: &quot;</span>;</div>
+<div class="line"><span class="lineno">  443</span>          cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  444</span>          index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  445</span> </div>
+<div class="line"><span class="lineno">  446</span>          <span class="comment">// Processo para garantir que a entrada é válida</span></div>
+<div class="line"><span class="lineno">  447</span>          <span class="keywordflow">while</span> (index &lt; 1 || index &gt; tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">getSongs</a>()-&gt;<a class="code hl_function" href="class_linked_list.html#ac8d24166208694f4fe3cc982307b03fb">getSize</a>()) {</div>
+<div class="line"><span class="lineno">  448</span>            cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Índice inválido! Tente novamente: &quot;</span>;</div>
+<div class="line"><span class="lineno">  449</span>            cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  450</span>            index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  451</span>          }</div>
+<div class="line"><span class="lineno">  452</span> </div>
+<div class="line"><span class="lineno">  453</span>          <span class="comment">// Lê a entrada</span></div>
+<div class="line"><span class="lineno">  454</span>          cout &lt;&lt; <span class="stringliteral">&quot;Insira o índice da posição para qual deseja movê-la: &quot;</span>;</div>
+<div class="line"><span class="lineno">  455</span>          cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  456</span>          index2 = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  457</span> </div>
+<div class="line"><span class="lineno">  458</span>          <span class="comment">// Processo para garantir que a entrada é válida</span></div>
+<div class="line"><span class="lineno">  459</span>          <span class="keywordflow">while</span> (index2 &lt; 1 || index2 &gt; tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">getSongs</a>()-&gt;<a class="code hl_function" href="class_linked_list.html#ac8d24166208694f4fe3cc982307b03fb">getSize</a>()) {</div>
+<div class="line"><span class="lineno">  460</span>            cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Índice inválido! Tente novamente: &quot;</span>;</div>
+<div class="line"><span class="lineno">  461</span>            cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  462</span>            index2 = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  463</span>          }</div>
+<div class="line"><span class="lineno">  464</span>            </div>
+<div class="line"><span class="lineno">  465</span>          <span class="comment">// Move a música</span></div>
+<div class="line"><span class="lineno">  466</span>          tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#aad8c43f4a140ecad82dd6694c658abf2">moveSong</a>(index, index2);</div>
+<div class="line"><span class="lineno">  467</span>          cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Posição alterada com sucesso.&quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  468</span>        }</div>
+<div class="line"><span class="lineno">  469</span>      }</div>
+<div class="line"><span class="lineno">  470</span>    }</div>
+<div class="line"><span class="lineno">  471</span>    <span class="keywordflow">if</span>(chooser == <span class="stringliteral">&quot;listmp&quot;</span>) { <span class="comment">// Listar músicas de uma playlist</span></div>
+<div class="line"><span class="lineno">  472</span>      <span class="comment">// Processo para garantir que há playlists adicionadas</span></div>
+<div class="line"><span class="lineno">  473</span>      validcommand = 1;</div>
+<div class="line"><span class="lineno">  474</span>      <span class="keywordflow">if</span> (playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>() == 0) {</div>
+<div class="line"><span class="lineno">  475</span>        cout &lt;&lt; <span class="stringliteral">&quot;Ops, nenhuma playlist foi adicionada até o momento, tente criar uma! &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  476</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  477</span>        <span class="comment">// Lê a entrada</span></div>
+<div class="line"><span class="lineno">  478</span>        cout &lt;&lt; <span class="stringliteral">&quot;Playlists disponíveis: &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  479</span>        playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a1d919017a5229f00491b047384eceb0a">display</a>();</div>
+<div class="line"><span class="lineno">  480</span>        cout &lt;&lt; <span class="stringliteral">&quot;Insira o índice da playlist desejada: &quot;</span>;</div>
+<div class="line"><span class="lineno">  481</span>        cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  482</span>        index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  483</span> </div>
+<div class="line"><span class="lineno">  484</span>        <span class="comment">// Processo para garantir que a entrada é válida</span></div>
+<div class="line"><span class="lineno">  485</span>        <span class="keywordflow">while</span> (index &lt; 1 || index &gt; playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>()) {</div>
+<div class="line"><span class="lineno">  486</span>          cout &lt;&lt; <span class="stringliteral">&quot;Índice inválido! Tente novamente: &quot;</span>;</div>
+<div class="line"><span class="lineno">  487</span>          cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  488</span>        index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  489</span>        }</div>
+<div class="line"><span class="lineno">  490</span> </div>
+<div class="line"><span class="lineno">  491</span>        <span class="comment">// Obtém a playlist pelo índice</span></div>
+<div class="line"><span class="lineno">  492</span>        tempPlaylist = playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#ad3d7068d450c1d177b71c1005f874319">getPlaylist</a>(index);</div>
+<div class="line"><span class="lineno">  493</span> </div>
+<div class="line"><span class="lineno">  494</span>        <span class="comment">// Processo para garantir que há músicas adicionadas</span></div>
+<div class="line"><span class="lineno">  495</span>        <span class="keywordflow">if</span> (tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">getSongs</a>()-&gt;<a class="code hl_function" href="class_linked_list.html#ac8d24166208694f4fe3cc982307b03fb">getSize</a>() == 0) {</div>
+<div class="line"><span class="lineno">  496</span>          cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Ops, a música não foi adicionada até o momento, por favor, adicione-a e tente novamente! &quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  497</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  498</span>          cout &lt;&lt; endl &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Músicas da playlist &#39;&quot;</span> &lt;&lt; tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a880984e292d0002d3daa763c386ad963">getName</a>() &lt;&lt; <span class="stringliteral">&quot;&#39;:&quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  499</span>          tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#ac749def3329225790a8069ea61f808a4">displayAllSongs</a>(tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">getSongs</a>()-&gt;<a class="code hl_function" href="class_linked_list.html#a248422bb6a4e6516ac9905bcb250f57c">getHead</a>());</div>
+<div class="line"><span class="lineno">  500</span>        }</div>
+<div class="line"><span class="lineno">  501</span>        cout &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  502</span>      }</div>
+<div class="line"><span class="lineno">  503</span>    }</div>
+<div class="line"><span class="lineno">  504</span>    <span class="keywordflow">if</span>(chooser == <span class="stringliteral">&quot;copyp&quot;</span>){ <span class="comment">//Função que cria uma playlist cópia de uma já existente.</span></div>
+<div class="line"><span class="lineno">  505</span>      validcommand = 1;</div>
+<div class="line"><span class="lineno">  506</span>      <span class="keywordflow">if</span> (playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>() == 0) {</div>
+<div class="line"><span class="lineno">  507</span>        cout &lt;&lt; <span class="stringliteral">&quot;Ops, nenhuma playlist foi adicionada até o momento, crie duas e tente novamente! &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  508</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  509</span>        <span class="comment">// Lê a entrada</span></div>
+<div class="line"><span class="lineno">  510</span>        cout &lt;&lt; <span class="stringliteral">&quot;Playlists disponíveis: &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  511</span>        playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a1d919017a5229f00491b047384eceb0a">display</a>();</div>
+<div class="line"><span class="lineno">  512</span>        cout &lt;&lt; <span class="stringliteral">&quot;Insira o índice da primeira playlist desejada: &quot;</span>;</div>
+<div class="line"><span class="lineno">  513</span>        cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  514</span>        index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  515</span> </div>
+<div class="line"><span class="lineno">  516</span>        <span class="comment">// Processo para garantir que a entrada é válida</span></div>
+<div class="line"><span class="lineno">  517</span>        <span class="keywordflow">while</span> (index &lt; 1 || index &gt; playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>()) {</div>
+<div class="line"><span class="lineno">  518</span>          cout &lt;&lt; <span class="stringliteral">&quot;Índice inválido! Tente novamente: &quot;</span>;</div>
+<div class="line"><span class="lineno">  519</span>          cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  520</span>          index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  521</span>        }</div>
+<div class="line"><span class="lineno">  522</span> </div>
+<div class="line"><span class="lineno">  523</span>        <span class="comment">// Obtém a playlist pelo índice</span></div>
+<div class="line"><span class="lineno">  524</span>        tempPlaylist = playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#ad3d7068d450c1d177b71c1005f874319">getPlaylist</a>(index);</div>
+<div class="line"><span class="lineno">  525</span> </div>
+<div class="line"><span class="lineno">  526</span>        <a class="code hl_class" href="class_playlist.html">Playlist</a>* tempPlaylistC = <span class="keyword">new</span> <a class="code hl_class" href="class_playlist.html">Playlist</a>(*tempPlaylist);</div>
+<div class="line"><span class="lineno">  527</span> </div>
+<div class="line"><span class="lineno">  528</span>        cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Digite o nome da nova Playlist: &quot;</span>;</div>
+<div class="line"><span class="lineno">  529</span>        cin.ignore(256, <span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><span class="lineno">  530</span>        getline(cin, tempTitle);</div>
+<div class="line"><span class="lineno">  531</span> </div>
+<div class="line"><span class="lineno">  532</span>        <span class="comment">// Adiciona o nome escolhido</span></div>
+<div class="line"><span class="lineno">  533</span>        tempPlaylistC-&gt;<a class="code hl_function" href="class_playlist.html#a1b80e7e123426e1ecab29b8955d0f704">setName</a>(tempTitle);</div>
+<div class="line"><span class="lineno">  534</span> </div>
+<div class="line"><span class="lineno">  535</span>        <span class="comment">// Insere na lista</span></div>
+<div class="line"><span class="lineno">  536</span>        playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a45ec445702d327bbaa2f09b08e0712f4">insertPlaylist</a>(tempPlaylistC); </div>
+<div class="line"><span class="lineno">  537</span>      }</div>
+<div class="line"><span class="lineno">  538</span>    }</div>
+<div class="line"><span class="lineno">  539</span>    <span class="keywordflow">if</span> (chooser == <span class="stringliteral">&quot;mergep&quot;</span>) { <span class="comment">//Função que cria uma nova playlist que contém as músicas de duas playlists previamente criadas.</span></div>
+<div class="line"><span class="lineno">  540</span>      validcommand = 1;</div>
+<div class="line"><span class="lineno">  541</span> </div>
+<div class="line"><span class="lineno">  542</span>      <span class="keywordflow">if</span> (playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>() == 0) {</div>
+<div class="line"><span class="lineno">  543</span>        cout &lt;&lt; <span class="stringliteral">&quot;Ops, nenhuma playlist foi adicionada até o momento, crie duas e tente novamente! &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  544</span>      }</div>
+<div class="line"><span class="lineno">  545</span>      <span class="keywordflow">if</span>  (playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>() == 1) {</div>
+<div class="line"><span class="lineno">  546</span>        cout &lt;&lt; <span class="stringliteral">&quot;Você precisa de pelo menos duas playlists para realizar essa operação, crie-as e tente novamente! &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  547</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  548</span>        <span class="comment">// Lê a entrada</span></div>
+<div class="line"><span class="lineno">  549</span>        cout &lt;&lt; <span class="stringliteral">&quot;Playlists disponíveis: &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  550</span>        playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a1d919017a5229f00491b047384eceb0a">display</a>();</div>
+<div class="line"><span class="lineno">  551</span>        cout &lt;&lt; <span class="stringliteral">&quot;Insira o índice da primeira playlist desejada: &quot;</span>;</div>
+<div class="line"><span class="lineno">  552</span>        cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  553</span>        index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  554</span> </div>
+<div class="line"><span class="lineno">  555</span>        <span class="comment">// Processo para garantir que a entrada é válida</span></div>
+<div class="line"><span class="lineno">  556</span>        <span class="keywordflow">while</span> (index &lt; 1 || index &gt; playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>()) {</div>
+<div class="line"><span class="lineno">  557</span>          cout &lt;&lt; <span class="stringliteral">&quot;Índice inválido! Tente novamente: &quot;</span>;</div>
+<div class="line"><span class="lineno">  558</span>          cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  559</span>          index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  560</span>        }</div>
+<div class="line"><span class="lineno">  561</span> </div>
+<div class="line"><span class="lineno">  562</span>        <span class="comment">// Obtém a playlist pelo índice</span></div>
+<div class="line"><span class="lineno">  563</span>        tempPlaylist = playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#ad3d7068d450c1d177b71c1005f874319">getPlaylist</a>(index);</div>
+<div class="line"><span class="lineno">  564</span> </div>
+<div class="line"><span class="lineno">  565</span>        <a class="code hl_class" href="class_playlist.html">Playlist</a>* tempPlaylist2 = <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">  566</span>          </div>
+<div class="line"><span class="lineno">  567</span>        <span class="comment">// Lê a entrada</span></div>
+<div class="line"><span class="lineno">  568</span>        cout &lt;&lt; <span class="stringliteral">&quot;Playlists disponíveis: &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  569</span>        playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a1d919017a5229f00491b047384eceb0a">display</a>();</div>
+<div class="line"><span class="lineno">  570</span>        cout &lt;&lt; <span class="stringliteral">&quot;Insira o índice da segunda playlist desejada: &quot;</span>;</div>
+<div class="line"><span class="lineno">  571</span>        cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  572</span>        index2 = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  573</span> </div>
+<div class="line"><span class="lineno">  574</span>        <span class="comment">// Processo para garantir que a entrada é válida</span></div>
+<div class="line"><span class="lineno">  575</span>        <span class="keywordflow">while</span> (index2 &lt; 1 || index2 &gt; playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>() || index2 == index ) {</div>
+<div class="line"><span class="lineno">  576</span>          cout &lt;&lt; <span class="stringliteral">&quot;Índice inválido! Tente novamente: &quot;</span>;</div>
+<div class="line"><span class="lineno">  577</span>          cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  578</span>          index2 = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  579</span>        }</div>
+<div class="line"><span class="lineno">  580</span>        tempPlaylist2 = playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#ad3d7068d450c1d177b71c1005f874319">getPlaylist</a>(index2);</div>
+<div class="line"><span class="lineno">  581</span> </div>
+<div class="line"><span class="lineno">  582</span>        <a class="code hl_class" href="class_playlist.html">Playlist</a>* tempPlaylist3 = <span class="keyword">new</span> <a class="code hl_class" href="class_playlist.html">Playlist</a>(*tempPlaylist + *tempPlaylist2); <span class="comment">//p3 = p1+p2</span></div>
+<div class="line"><span class="lineno">  583</span> </div>
+<div class="line"><span class="lineno">  584</span>        cout &lt;&lt; <span class="stringliteral">&quot;Digite o nome da nova Playlist: &quot;</span>;</div>
+<div class="line"><span class="lineno">  585</span>        cin.ignore(256, <span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><span class="lineno">  586</span>        getline(cin, tempTitle);</div>
+<div class="line"><span class="lineno">  587</span> </div>
+<div class="line"><span class="lineno">  588</span>        <span class="comment">// Adiciona o nome escolhido</span></div>
+<div class="line"><span class="lineno">  589</span>        tempPlaylist3-&gt;<a class="code hl_function" href="class_playlist.html#a1b80e7e123426e1ecab29b8955d0f704">setName</a>(tempTitle);</div>
+<div class="line"><span class="lineno">  590</span> </div>
+<div class="line"><span class="lineno">  591</span>        <span class="comment">// Insere na lista</span></div>
+<div class="line"><span class="lineno">  592</span>        playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a45ec445702d327bbaa2f09b08e0712f4">insertPlaylist</a>(tempPlaylist3);         </div>
+<div class="line"><span class="lineno">  593</span>      }</div>
+<div class="line"><span class="lineno">  594</span>    }</div>
+<div class="line"><span class="lineno">  595</span>    <span class="keywordflow">if</span> (chooser == <span class="stringliteral">&quot;mergep-&quot;</span>){ <span class="comment">// Função que usando duas playlists previamente criadas cria uma nova playlist com as músicas da segunda removidas da primeira.</span></div>
+<div class="line"><span class="lineno">  596</span>      validcommand = 1;</div>
+<div class="line"><span class="lineno">  597</span>      <span class="keywordflow">if</span> (playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>() == 0) {</div>
+<div class="line"><span class="lineno">  598</span>        cout &lt;&lt; <span class="stringliteral">&quot;Ops, nenhuma playlist foi adicionada até o momento, crie duas e tente novamente! &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  599</span>      }</div>
+<div class="line"><span class="lineno">  600</span>      <span class="keywordflow">if</span> (playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>() == 1) {</div>
+<div class="line"><span class="lineno">  601</span>        cout &lt;&lt; <span class="stringliteral">&quot;Você precisa de pelo menos duas playlists para realizar essa operação, crie-as e tente novamente! &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  602</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  603</span>        <span class="comment">// Lê a entrada</span></div>
+<div class="line"><span class="lineno">  604</span>        cout &lt;&lt; <span class="stringliteral">&quot;Playlists disponíveis: &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  605</span>        playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a1d919017a5229f00491b047384eceb0a">display</a>();</div>
+<div class="line"><span class="lineno">  606</span>        cout &lt;&lt; <span class="stringliteral">&quot;Insira o índice da primeira playlist desejada: &quot;</span>;</div>
+<div class="line"><span class="lineno">  607</span>        cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  608</span>        index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  609</span> </div>
+<div class="line"><span class="lineno">  610</span>        <span class="comment">// Processo para garantir que a entrada é válida</span></div>
+<div class="line"><span class="lineno">  611</span>        <span class="keywordflow">while</span> (index &lt; 1 || index &gt; playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>()) {</div>
+<div class="line"><span class="lineno">  612</span>          cout &lt;&lt; <span class="stringliteral">&quot;Índice inválido! Tente novamente: &quot;</span>;</div>
+<div class="line"><span class="lineno">  613</span>          cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  614</span>          index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  615</span>        }</div>
+<div class="line"><span class="lineno">  616</span> </div>
+<div class="line"><span class="lineno">  617</span>        <span class="comment">// Obtém a playlist pelo índice</span></div>
+<div class="line"><span class="lineno">  618</span>        tempPlaylist = playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#ad3d7068d450c1d177b71c1005f874319">getPlaylist</a>(index);</div>
+<div class="line"><span class="lineno">  619</span> </div>
+<div class="line"><span class="lineno">  620</span>        <a class="code hl_class" href="class_playlist.html">Playlist</a>* tempPlaylist2 = <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">  621</span>          </div>
+<div class="line"><span class="lineno">  622</span>        <span class="comment">// Lê a entrada</span></div>
+<div class="line"><span class="lineno">  623</span>        cout &lt;&lt; <span class="stringliteral">&quot;Playlists disponíveis: &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  624</span>        playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a1d919017a5229f00491b047384eceb0a">display</a>();</div>
+<div class="line"><span class="lineno">  625</span>        cout &lt;&lt; <span class="stringliteral">&quot;Insira o índice da segunda playlist desejada: &quot;</span>;</div>
+<div class="line"><span class="lineno">  626</span>        cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  627</span>        index2 = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  628</span> </div>
+<div class="line"><span class="lineno">  629</span>        <span class="comment">// Processo para garantir que a entrada é válida</span></div>
+<div class="line"><span class="lineno">  630</span>        <span class="keywordflow">while</span> (index2 &lt; 1 || index2 &gt; playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>() || index2 == index ) {</div>
+<div class="line"><span class="lineno">  631</span>          cout &lt;&lt; <span class="stringliteral">&quot;Índice inválido! Tente novamente: &quot;</span>;</div>
+<div class="line"><span class="lineno">  632</span>          cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  633</span>          index2 = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  634</span>        }</div>
+<div class="line"><span class="lineno">  635</span>        tempPlaylist2 = playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#ad3d7068d450c1d177b71c1005f874319">getPlaylist</a>(index2);</div>
+<div class="line"><span class="lineno">  636</span> </div>
+<div class="line"><span class="lineno">  637</span>        <a class="code hl_class" href="class_playlist.html">Playlist</a>* tempPlaylist3 = <span class="keyword">new</span> <a class="code hl_class" href="class_playlist.html">Playlist</a>(*tempPlaylist - *tempPlaylist2); <span class="comment">//p3 = p1 - p2</span></div>
+<div class="line"><span class="lineno">  638</span> </div>
+<div class="line"><span class="lineno">  639</span>        cout &lt;&lt; <span class="stringliteral">&quot;Digite o nome da nova Playlist: &quot;</span>;</div>
+<div class="line"><span class="lineno">  640</span>        cin.ignore(256, <span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><span class="lineno">  641</span>        getline(cin, tempTitle);</div>
+<div class="line"><span class="lineno">  642</span> </div>
+<div class="line"><span class="lineno">  643</span>        <span class="comment">// Adiciona o nome escolhido</span></div>
+<div class="line"><span class="lineno">  644</span>        tempPlaylist3-&gt;<a class="code hl_function" href="class_playlist.html#a1b80e7e123426e1ecab29b8955d0f704">setName</a>(tempTitle);</div>
+<div class="line"><span class="lineno">  645</span> </div>
+<div class="line"><span class="lineno">  646</span>        <span class="comment">// Insere na lista</span></div>
+<div class="line"><span class="lineno">  647</span>        playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a45ec445702d327bbaa2f09b08e0712f4">insertPlaylist</a>(tempPlaylist3);         </div>
+<div class="line"><span class="lineno">  648</span>      }</div>
+<div class="line"><span class="lineno">  649</span>    }</div>
+<div class="line"><span class="lineno">  650</span>    <span class="keywordflow">if</span>(chooser == <span class="stringliteral">&quot;addtp&quot;</span>){ <span class="comment">//Função que adiciona algumas músicas e playlists ao reprodutor automaticamente.</span></div>
+<div class="line"><span class="lineno">  651</span>      validcommand = 1;</div>
+<div class="line"><span class="lineno">  652</span>      <span class="comment">// Adicionando primeira playlist.</span></div>
+<div class="line"><span class="lineno">  653</span>      <a class="code hl_class" href="class_playlist.html">Playlist</a>* Playlist_1 = <span class="keyword">new</span> <a class="code hl_class" href="class_playlist.html">Playlist</a>;</div>
+<div class="line"><span class="lineno">  654</span>      Playlist_1-&gt;<a class="code hl_function" href="class_playlist.html#a1b80e7e123426e1ecab29b8955d0f704">setName</a>(<span class="stringliteral">&quot;Playlist 1&quot;</span>);</div>
+<div class="line"><span class="lineno">  655</span>      playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a45ec445702d327bbaa2f09b08e0712f4">insertPlaylist</a>(Playlist_1);</div>
+<div class="line"><span class="lineno">  656</span>      <span class="comment">// Adicionando segundo playlist.</span></div>
+<div class="line"><span class="lineno">  657</span>      <a class="code hl_class" href="class_playlist.html">Playlist</a>* Playlist_2 = <span class="keyword">new</span> <a class="code hl_class" href="class_playlist.html">Playlist</a>;</div>
+<div class="line"><span class="lineno">  658</span>      Playlist_2-&gt;<a class="code hl_function" href="class_playlist.html#a1b80e7e123426e1ecab29b8955d0f704">setName</a>(<span class="stringliteral">&quot;Playlist 2&quot;</span>);</div>
+<div class="line"><span class="lineno">  659</span>      playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a45ec445702d327bbaa2f09b08e0712f4">insertPlaylist</a>(Playlist_2);</div>
+<div class="line"><span class="lineno">  660</span>      <span class="comment">// Adicionando primeira música</span></div>
+<div class="line"><span class="lineno">  661</span>      tempSong.<a class="code hl_function" href="class_song.html#a479535dd6ee71e9180ca3b6facb539c8">setTitle</a>(<span class="stringliteral">&quot;Shelter&quot;</span>);</div>
+<div class="line"><span class="lineno">  662</span>      tempSong.<a class="code hl_function" href="class_song.html#a58b39575e2dd3f5b073e77c55e612121">setArtist</a>(<span class="stringliteral">&quot;Porter Robinson&quot;</span>);</div>
+<div class="line"><span class="lineno">  663</span>      globalList-&gt;<a class="code hl_function" href="class_linked_list.html#acd7d0b683aaf5ea4bb208b806fa2872b">insertEnd</a>(tempSong);</div>
+<div class="line"><span class="lineno">  664</span>      <span class="comment">//Adicionando a música na playlist 1</span></div>
+<div class="line"><span class="lineno">  665</span>      Playlist_1-&gt;<a class="code hl_function" href="class_playlist.html#a96d670a87ad7adbcf2bac35293c18db9">insertSong</a>(1, tempSong);</div>
+<div class="line"><span class="lineno">  666</span>      <span class="comment">// Adicionando segunda música</span></div>
+<div class="line"><span class="lineno">  667</span>      tempSong.<a class="code hl_function" href="class_song.html#a479535dd6ee71e9180ca3b6facb539c8">setTitle</a>(<span class="stringliteral">&quot;Never Gonna Give You Up&quot;</span>);</div>
+<div class="line"><span class="lineno">  668</span>      tempSong.<a class="code hl_function" href="class_song.html#a58b39575e2dd3f5b073e77c55e612121">setArtist</a>(<span class="stringliteral">&quot;Rick Astley&quot;</span>);</div>
+<div class="line"><span class="lineno">  669</span>      globalList-&gt;<a class="code hl_function" href="class_linked_list.html#acd7d0b683aaf5ea4bb208b806fa2872b">insertEnd</a>(tempSong);</div>
+<div class="line"><span class="lineno">  670</span>      Playlist_1-&gt;<a class="code hl_function" href="class_playlist.html#a96d670a87ad7adbcf2bac35293c18db9">insertSong</a>(2, tempSong);</div>
+<div class="line"><span class="lineno">  671</span>      Playlist_2-&gt;<a class="code hl_function" href="class_playlist.html#a96d670a87ad7adbcf2bac35293c18db9">insertSong</a>(1, tempSong);</div>
+<div class="line"><span class="lineno">  672</span>      <span class="comment">// Adicionando terceira música</span></div>
+<div class="line"><span class="lineno">  673</span>      tempSong.<a class="code hl_function" href="class_song.html#a479535dd6ee71e9180ca3b6facb539c8">setTitle</a>(<span class="stringliteral">&quot;Firework&quot;</span>);</div>
+<div class="line"><span class="lineno">  674</span>      tempSong.<a class="code hl_function" href="class_song.html#a58b39575e2dd3f5b073e77c55e612121">setArtist</a>(<span class="stringliteral">&quot;Katy Perry&quot;</span>);</div>
+<div class="line"><span class="lineno">  675</span>      globalList-&gt;<a class="code hl_function" href="class_linked_list.html#acd7d0b683aaf5ea4bb208b806fa2872b">insertEnd</a>(tempSong);</div>
+<div class="line"><span class="lineno">  676</span>      Playlist_1-&gt;<a class="code hl_function" href="class_playlist.html#a96d670a87ad7adbcf2bac35293c18db9">insertSong</a>(3, tempSong);</div>
+<div class="line"><span class="lineno">  677</span>      Playlist_2-&gt;<a class="code hl_function" href="class_playlist.html#a96d670a87ad7adbcf2bac35293c18db9">insertSong</a>(2, tempSong);</div>
+<div class="line"><span class="lineno">  678</span>      <span class="comment">// Adicionando quarta música</span></div>
+<div class="line"><span class="lineno">  679</span>      tempSong.<a class="code hl_function" href="class_song.html#a479535dd6ee71e9180ca3b6facb539c8">setTitle</a>(<span class="stringliteral">&quot;Complicated&quot;</span>);</div>
+<div class="line"><span class="lineno">  680</span>      tempSong.<a class="code hl_function" href="class_song.html#a58b39575e2dd3f5b073e77c55e612121">setArtist</a>(<span class="stringliteral">&quot;Avril Lavigne&quot;</span>);</div>
+<div class="line"><span class="lineno">  681</span>      globalList-&gt;<a class="code hl_function" href="class_linked_list.html#acd7d0b683aaf5ea4bb208b806fa2872b">insertEnd</a>(tempSong);</div>
+<div class="line"><span class="lineno">  682</span>      Playlist_2-&gt;<a class="code hl_function" href="class_playlist.html#a96d670a87ad7adbcf2bac35293c18db9">insertSong</a>(3, tempSong);</div>
+<div class="line"><span class="lineno">  683</span>      <span class="comment">// Adicionando quinta música</span></div>
+<div class="line"><span class="lineno">  684</span>      tempSong.<a class="code hl_function" href="class_song.html#a479535dd6ee71e9180ca3b6facb539c8">setTitle</a>(<span class="stringliteral">&quot;Jump&quot;</span>);</div>
+<div class="line"><span class="lineno">  685</span>      tempSong.<a class="code hl_function" href="class_song.html#a58b39575e2dd3f5b073e77c55e612121">setArtist</a>(<span class="stringliteral">&quot;Van Haley&quot;</span>);</div>
+<div class="line"><span class="lineno">  686</span>      globalList-&gt;<a class="code hl_function" href="class_linked_list.html#acd7d0b683aaf5ea4bb208b806fa2872b">insertEnd</a>(tempSong);</div>
+<div class="line"><span class="lineno">  687</span>      Playlist_2-&gt;<a class="code hl_function" href="class_playlist.html#a96d670a87ad7adbcf2bac35293c18db9">insertSong</a>(4, tempSong);</div>
+<div class="line"><span class="lineno">  688</span>      cout &lt;&lt; <span class="stringliteral">&quot;Músicas adicionadas com sucesso!&quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  689</span>    }</div>
+<div class="line"><span class="lineno">  690</span>    <span class="keywordflow">if</span> (chooser == <span class="stringliteral">&quot;help&quot;</span>){</div>
+<div class="line"><span class="lineno">  691</span>      validcommand = 1;</div>
+<div class="line"><span class="lineno">  692</span>      <a class="code hl_function" href="utilitarios_8h.html#a134711402420776af24f650aedaf6e12">helpPage</a>();</div>
+<div class="line"><span class="lineno">  693</span>    }</div>
+<div class="line"><span class="lineno">  694</span>    <span class="keywordflow">if</span> (chooser == <span class="stringliteral">&quot;savetf&quot;</span>){</div>
+<div class="line"><span class="lineno">  695</span>      validcommand = 1;</div>
+<div class="line"><span class="lineno">  696</span>      ofstream myfile;</div>
+<div class="line"><span class="lineno">  697</span>        </div>
+<div class="line"><span class="lineno">  698</span>      cout &lt;&lt; <span class="stringliteral">&quot;Escolha a playlist que você quer armazenar: &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  699</span>      playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a1d919017a5229f00491b047384eceb0a">display</a>();</div>
+<div class="line"><span class="lineno">  700</span>      cout &lt;&lt; <span class="stringliteral">&quot;Insira o índice da playlist desejada: &quot;</span>;</div>
+<div class="line"><span class="lineno">  701</span>      cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  702</span>      index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  703</span>      <span class="keywordflow">while</span> (index &lt; 1 || index &gt; playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">getSize</a>()) {</div>
+<div class="line"><span class="lineno">  704</span>        cout &lt;&lt; <span class="stringliteral">&quot;Índice inválido! Tente novamente: &quot;</span>;</div>
+<div class="line"><span class="lineno">  705</span>        cin &gt;&gt; <a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>; </div>
+<div class="line"><span class="lineno">  706</span>        index = stoi(<a class="code hl_function" href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a>(<a class="code hl_variable" href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a>));</div>
+<div class="line"><span class="lineno">  707</span>      }</div>
+<div class="line"><span class="lineno">  708</span>      tempPlaylist = playlists-&gt;<a class="code hl_function" href="class_list_of_playlists.html#ad3d7068d450c1d177b71c1005f874319">getPlaylist</a>(index);</div>
+<div class="line"><span class="lineno">  709</span>        </div>
+<div class="line"><span class="lineno">  710</span>      <span class="keywordflow">if</span> (tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">getSongs</a>()-&gt;<a class="code hl_function" href="class_linked_list.html#ac8d24166208694f4fe3cc982307b03fb">getSize</a>() == 0) {</div>
+<div class="line"><span class="lineno">  711</span>        cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">&quot;Ops, a música não foi adicionada até o momento, por favor, adicione-a e tente novamente! &quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  712</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  713</span>        myfile.open(<span class="stringliteral">&quot;Playlists.txt&quot;</span>, std::ios_base::app);</div>
+<div class="line"><span class="lineno">  714</span>        <span class="comment">// myfile &lt;&lt; endl &lt;&lt; endl &lt;&lt; &quot;Músicas da playlist &#39;&quot; &lt;&lt; tempPlaylist-&gt;getName() &lt;&lt; &quot;&#39;:&quot; &lt;&lt; endl &lt;&lt; endl;</span></div>
+<div class="line"><span class="lineno">  715</span>        myfile &lt;&lt; tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a880984e292d0002d3daa763c386ad963">getName</a>() &lt;&lt; <span class="stringliteral">&quot;;&quot;</span>;</div>
+<div class="line"><span class="lineno">  716</span>        tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a7697cc17a676db44638d4d60668026b1">saveAlltofile</a>(tempPlaylist-&gt;<a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">getSongs</a>()-&gt;<a class="code hl_function" href="class_linked_list.html#a248422bb6a4e6516ac9905bcb250f57c">getHead</a>(), myfile);</div>
+<div class="line"><span class="lineno">  717</span>        myfile.seekp(-1, ios::end);</div>
+<div class="line"><span class="lineno">  718</span>        myfile &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  719</span>         myfile.close();</div>
+<div class="line"><span class="lineno">  720</span>      }</div>
+<div class="line"><span class="lineno">  721</span>    }</div>
+<div class="line"><span class="lineno">  722</span>    <span class="keywordflow">if</span> (chooser == <span class="stringliteral">&quot;otest&quot;</span>){ <span class="comment">// Opção de teste para os métodos sobrecarregados</span></div>
+<div class="line"><span class="lineno">  723</span>      validcommand = 1;</div>
+<div class="line"><span class="lineno">  724</span>      <a class="code hl_function" href="utilitarios_8h.html#a093a8d15f377aeb0bc93849ea3860c33">testeSobrecarga</a>();</div>
+<div class="line"><span class="lineno">  725</span>      cout &lt;&lt; <span class="stringliteral">&quot;Pressione &#39;Enter&#39; para continuar.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  726</span>      getchar();</div>
+<div class="line"><span class="lineno">  727</span>      getchar();</div>
+<div class="line"><span class="lineno">  728</span>    }</div>
+<div class="line"><span class="lineno">  729</span>    <span class="keywordflow">if</span> (chooser == <span class="stringliteral">&quot;quit&quot;</span>){ <span class="comment">//Encerra o programa.</span></div>
+<div class="line"><span class="lineno">  730</span>      validcommand = 1;</div>
+<div class="line"><span class="lineno">  731</span>      cout &lt;&lt; <span class="stringliteral">&quot;Encerrando o programa.&quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  732</span>      option = 0;</div>
+<div class="line"><span class="lineno">  733</span>      <span class="comment">// Libera a memória das listas globais</span></div>
+<div class="line"><span class="lineno">  734</span>      <span class="keyword">delete</span> globalList;</div>
+<div class="line"><span class="lineno">  735</span>      <span class="keyword">delete</span> playlists;</div>
+<div class="line"><span class="lineno">  736</span>      cout &lt;&lt; <span class="stringliteral">&quot;Programa Encerrado!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  737</span>    } </div>
+<div class="line"><span class="lineno">  738</span>    <span class="keywordflow">if</span>(validcommand == 0){</div>
+<div class="line"><span class="lineno">  739</span>      cout &lt;&lt; <span class="stringliteral">&quot;Comando inválido!&quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  740</span>    }</div>
+<div class="line"><span class="lineno">  741</span>  }</div>
+<div class="line"><span class="lineno">  742</span>  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  743</span>}</div>
+<div class="ttc" id="aclass_linked_list_html"><div class="ttname"><a href="class_linked_list.html">LinkedList</a></div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8h_source.html#l00012">listaLigada.h:12</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_a01efd552dee7a5ca391060ee68042e3e"><div class="ttname"><a href="class_linked_list.html#a01efd552dee7a5ca391060ee68042e3e">LinkedList::search</a></div><div class="ttdeci">no * search(Song searchSong)</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00316">listaLigada.cpp:316</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_a248422bb6a4e6516ac9905bcb250f57c"><div class="ttname"><a href="class_linked_list.html#a248422bb6a4e6516ac9905bcb250f57c">LinkedList::getHead</a></div><div class="ttdeci">no * getHead()</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00038">listaLigada.cpp:38</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_a4bb6b62a23c9f9675beb4b1f7f104384"><div class="ttname"><a href="class_linked_list.html#a4bb6b62a23c9f9675beb4b1f7f104384">LinkedList::getno</a></div><div class="ttdeci">no * getno(size_t pos)</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00341">listaLigada.cpp:341</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_a4cf9d1fdf67868d502a7086c245ee3b6"><div class="ttname"><a href="class_linked_list.html#a4cf9d1fdf67868d502a7086c245ee3b6">LinkedList::removePosition</a></div><div class="ttdeci">void removePosition(size_t pos)</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00260">listaLigada.cpp:260</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_ac8d24166208694f4fe3cc982307b03fb"><div class="ttname"><a href="class_linked_list.html#ac8d24166208694f4fe3cc982307b03fb">LinkedList::getSize</a></div><div class="ttdeci">size_t getSize()</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00046">listaLigada.cpp:46</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_acd7d0b683aaf5ea4bb208b806fa2872b"><div class="ttname"><a href="class_linked_list.html#acd7d0b683aaf5ea4bb208b806fa2872b">LinkedList::insertEnd</a></div><div class="ttdeci">int insertEnd(Song value)</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00150">listaLigada.cpp:150</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_af02eaa3695918e657f639996eae613c5"><div class="ttname"><a href="class_linked_list.html#af02eaa3695918e657f639996eae613c5">LinkedList::display</a></div><div class="ttdeci">void display()</div><div class="ttdoc">Essa função exibe as músicas armazenadas na lista ligada utilizando um loop while que irá até a ultim...</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00380">listaLigada.cpp:380</a></div></div>
+<div class="ttc" id="aclass_list_of_playlists_html"><div class="ttname"><a href="class_list_of_playlists.html">ListOfPlaylists</a></div><div class="ttdef"><b>Definition:</b> <a href="lista_playlists_8h_source.html#l00014">listaPlaylists.h:14</a></div></div>
+<div class="ttc" id="aclass_list_of_playlists_html_a1d919017a5229f00491b047384eceb0a"><div class="ttname"><a href="class_list_of_playlists.html#a1d919017a5229f00491b047384eceb0a">ListOfPlaylists::display</a></div><div class="ttdeci">void display()</div><div class="ttdoc">Função que exibe todas as playlists na lista ligada.</div><div class="ttdef"><b>Definition:</b> <a href="lista_playlists_8cpp_source.html#l00148">listaPlaylists.cpp:148</a></div></div>
+<div class="ttc" id="aclass_list_of_playlists_html_a45ec445702d327bbaa2f09b08e0712f4"><div class="ttname"><a href="class_list_of_playlists.html#a45ec445702d327bbaa2f09b08e0712f4">ListOfPlaylists::insertPlaylist</a></div><div class="ttdeci">void insertPlaylist(Playlist *value)</div><div class="ttdef"><b>Definition:</b> <a href="lista_playlists_8cpp_source.html#l00077">listaPlaylists.cpp:77</a></div></div>
+<div class="ttc" id="aclass_list_of_playlists_html_a50611e6b7d261e8035aac5b78cb2ad6c"><div class="ttname"><a href="class_list_of_playlists.html#a50611e6b7d261e8035aac5b78cb2ad6c">ListOfPlaylists::removePlaylist</a></div><div class="ttdeci">void removePlaylist(size_t pos)</div><div class="ttdef"><b>Definition:</b> <a href="lista_playlists_8cpp_source.html#l00101">listaPlaylists.cpp:101</a></div></div>
+<div class="ttc" id="aclass_list_of_playlists_html_a61711514feeedfe45c01b89c499b8c09"><div class="ttname"><a href="class_list_of_playlists.html#a61711514feeedfe45c01b89c499b8c09">ListOfPlaylists::getSize</a></div><div class="ttdeci">size_t getSize()</div><div class="ttdef"><b>Definition:</b> <a href="lista_playlists_8cpp_source.html#l00035">listaPlaylists.cpp:35</a></div></div>
+<div class="ttc" id="aclass_list_of_playlists_html_ac9af0f613bf7a18833a6520cc405f660"><div class="ttname"><a href="class_list_of_playlists.html#ac9af0f613bf7a18833a6520cc405f660">ListOfPlaylists::removeFromAll</a></div><div class="ttdeci">void removeFromAll(Song target)</div><div class="ttdef"><b>Definition:</b> <a href="lista_playlists_8cpp_source.html#l00132">listaPlaylists.cpp:132</a></div></div>
+<div class="ttc" id="aclass_list_of_playlists_html_ad3d7068d450c1d177b71c1005f874319"><div class="ttname"><a href="class_list_of_playlists.html#ad3d7068d450c1d177b71c1005f874319">ListOfPlaylists::getPlaylist</a></div><div class="ttdeci">Playlist * getPlaylist(size_t pos)</div><div class="ttdef"><b>Definition:</b> <a href="lista_playlists_8cpp_source.html#l00043">listaPlaylists.cpp:43</a></div></div>
+<div class="ttc" id="aclass_playlist_html"><div class="ttname"><a href="class_playlist.html">Playlist</a></div><div class="ttdef"><b>Definition:</b> <a href="playlist_8h_source.html#l00011">playlist.h:11</a></div></div>
+<div class="ttc" id="aclass_playlist_html_a1b80e7e123426e1ecab29b8955d0f704"><div class="ttname"><a href="class_playlist.html#a1b80e7e123426e1ecab29b8955d0f704">Playlist::setName</a></div><div class="ttdeci">void setName(string _name)</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8cpp_source.html#l00032">playlist.cpp:32</a></div></div>
+<div class="ttc" id="aclass_playlist_html_a3cff70256b145c3c76ec024d3a00297c"><div class="ttname"><a href="class_playlist.html#a3cff70256b145c3c76ec024d3a00297c">Playlist::removeSong</a></div><div class="ttdeci">void removeSong(size_t pos)</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8cpp_source.html#l00134">playlist.cpp:134</a></div></div>
+<div class="ttc" id="aclass_playlist_html_a442977c2fd3ee10969b1f8ee6d3c4287"><div class="ttname"><a href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">Playlist::getSongs</a></div><div class="ttdeci">LinkedList * getSongs()</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8cpp_source.html#l00024">playlist.cpp:24</a></div></div>
+<div class="ttc" id="aclass_playlist_html_a7697cc17a676db44638d4d60668026b1"><div class="ttname"><a href="class_playlist.html#a7697cc17a676db44638d4d60668026b1">Playlist::saveAlltofile</a></div><div class="ttdeci">void saveAlltofile(no *current, ofstream &amp;myfile)</div><div class="ttdoc">Função recursiva que adiciona uma playlist a um arquivo &quot;Playlist.txt&quot;.</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8cpp_source.html#l00232">playlist.cpp:232</a></div></div>
+<div class="ttc" id="aclass_playlist_html_a853345e85d6898253897932b64471a29"><div class="ttname"><a href="class_playlist.html#a853345e85d6898253897932b64471a29">Playlist::displayOne</a></div><div class="ttdeci">void displayOne(no *current, int pos)</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8cpp_source.html#l00257">playlist.cpp:257</a></div></div>
+<div class="ttc" id="aclass_playlist_html_a880984e292d0002d3daa763c386ad963"><div class="ttname"><a href="class_playlist.html#a880984e292d0002d3daa763c386ad963">Playlist::getName</a></div><div class="ttdeci">string getName()</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8cpp_source.html#l00028">playlist.cpp:28</a></div></div>
+<div class="ttc" id="aclass_playlist_html_a96d670a87ad7adbcf2bac35293c18db9"><div class="ttname"><a href="class_playlist.html#a96d670a87ad7adbcf2bac35293c18db9">Playlist::insertSong</a></div><div class="ttdeci">void insertSong(size_t pos, Song value)</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8cpp_source.html#l00125">playlist.cpp:125</a></div></div>
+<div class="ttc" id="aclass_playlist_html_aad8c43f4a140ecad82dd6694c658abf2"><div class="ttname"><a href="class_playlist.html#aad8c43f4a140ecad82dd6694c658abf2">Playlist::moveSong</a></div><div class="ttdeci">void moveSong(size_t start, size_t end)</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8cpp_source.html#l00143">playlist.cpp:143</a></div></div>
+<div class="ttc" id="aclass_playlist_html_ac749def3329225790a8069ea61f808a4"><div class="ttname"><a href="class_playlist.html#ac749def3329225790a8069ea61f808a4">Playlist::displayAllSongs</a></div><div class="ttdeci">void displayAllSongs(no *current)</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8cpp_source.html#l00202">playlist.cpp:202</a></div></div>
+<div class="ttc" id="aclass_song_html"><div class="ttname"><a href="class_song.html">Song</a></div><div class="ttdef"><b>Definition:</b> <a href="musica_8h_source.html#l00008">musica.h:8</a></div></div>
+<div class="ttc" id="aclass_song_html_a07dcbecc06e304ab0e243d612fae785d"><div class="ttname"><a href="class_song.html#a07dcbecc06e304ab0e243d612fae785d">Song::getArtist</a></div><div class="ttdeci">string getArtist()</div><div class="ttdoc">Get que retorna o artísta de um &quot;Song&quot;.</div><div class="ttdef"><b>Definition:</b> <a href="musica_8cpp_source.html#l00037">musica.cpp:37</a></div></div>
+<div class="ttc" id="aclass_song_html_a3dd577c3abfc309bceea6b0968a68d1c"><div class="ttname"><a href="class_song.html#a3dd577c3abfc309bceea6b0968a68d1c">Song::getTitle</a></div><div class="ttdeci">string getTitle()</div><div class="ttdoc">Get que retorna o título de um &quot;Song&quot;.</div><div class="ttdef"><b>Definition:</b> <a href="musica_8cpp_source.html#l00029">musica.cpp:29</a></div></div>
+<div class="ttc" id="aclass_song_html_a479535dd6ee71e9180ca3b6facb539c8"><div class="ttname"><a href="class_song.html#a479535dd6ee71e9180ca3b6facb539c8">Song::setTitle</a></div><div class="ttdeci">void setTitle(string _title)</div><div class="ttdoc">Set que define o título de um &quot;Song&quot;.</div><div class="ttdef"><b>Definition:</b> <a href="musica_8cpp_source.html#l00045">musica.cpp:45</a></div></div>
+<div class="ttc" id="aclass_song_html_a58b39575e2dd3f5b073e77c55e612121"><div class="ttname"><a href="class_song.html#a58b39575e2dd3f5b073e77c55e612121">Song::setArtist</a></div><div class="ttdeci">void setArtist(string _artist)</div><div class="ttdoc">Set que define o artista de um &quot;Song&quot;.</div><div class="ttdef"><b>Definition:</b> <a href="musica_8cpp_source.html#l00053">musica.cpp:53</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a35fd1e3b4b7aa595eca11a2b9d953c31"><div class="ttname"><a href="main_8cpp.html#a35fd1e3b4b7aa595eca11a2b9d953c31">playing</a></div><div class="ttdeci">int playing</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00024">main.cpp:24</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a5c0f3d59a5d3bae1b48c197b65030c0b"><div class="ttname"><a href="main_8cpp.html#a5c0f3d59a5d3bae1b48c197b65030c0b">chkint</a></div><div class="ttdeci">string chkint</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00023">main.cpp:23</a></div></div>
+<div class="ttc" id="astructno_html"><div class="ttname"><a href="structno.html">no</a></div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8h_source.html#l00007">listaLigada.h:7</a></div></div>
+<div class="ttc" id="astructno_html_a144a437f61f86f76d8fe1887fc615578"><div class="ttname"><a href="structno.html#a144a437f61f86f76d8fe1887fc615578">no::data</a></div><div class="ttdeci">Song data</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8h_source.html#l00008">listaLigada.h:8</a></div></div>
+<div class="ttc" id="autilitarios_8h_html_a093a8d15f377aeb0bc93849ea3860c33"><div class="ttname"><a href="utilitarios_8h.html#a093a8d15f377aeb0bc93849ea3860c33">testeSobrecarga</a></div><div class="ttdeci">void testeSobrecarga()</div><div class="ttdoc">Função que testa os métodos sobrecarregados.</div><div class="ttdef"><b>Definition:</b> <a href="utilitarios_8cpp_source.html#l00048">utilitarios.cpp:48</a></div></div>
+<div class="ttc" id="autilitarios_8h_html_a134711402420776af24f650aedaf6e12"><div class="ttname"><a href="utilitarios_8h.html#a134711402420776af24f650aedaf6e12">helpPage</a></div><div class="ttdeci">void helpPage()</div><div class="ttdoc">Função que imprime para o usuário os comandos que o programa pode executar.</div><div class="ttdef"><b>Definition:</b> <a href="utilitarios_8cpp_source.html#l00273">utilitarios.cpp:273</a></div></div>
+<div class="ttc" id="autilitarios_8h_html_a2192928fb63f74704c2bd5b698acddad"><div class="ttname"><a href="utilitarios_8h.html#a2192928fb63f74704c2bd5b698acddad">checkInt</a></div><div class="ttdeci">string checkInt(string s)</div><div class="ttdef"><b>Definition:</b> <a href="utilitarios_8cpp_source.html#l00036">utilitarios.cpp:36</a></div></div>
+<div class="ttc" id="autilitarios_8h_html_a6df378d98daa0018fcd526db19fe47f8"><div class="ttname"><a href="utilitarios_8h.html#a6df378d98daa0018fcd526db19fe47f8">stopPlaying</a></div><div class="ttdeci">void stopPlaying(int &amp;playing, size_t &amp;index)</div><div class="ttdoc">Função que para a reprodução de músicas.</div><div class="ttdef"><b>Definition:</b> <a href="utilitarios_8cpp_source.html#l00330">utilitarios.cpp:330</a></div></div>
+<div class="ttc" id="autilitarios_8h_html_a9015a42613173f7100bbdfcd1ffab163"><div class="ttname"><a href="utilitarios_8h.html#a9015a42613173f7100bbdfcd1ffab163">telaInicial</a></div><div class="ttdeci">void telaInicial()</div><div class="ttdoc">Função que imprime a tela inicial.</div><div class="ttdef"><b>Definition:</b> <a href="utilitarios_8cpp_source.html#l00318">utilitarios.cpp:318</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Variáveis</h2>
+<a id="a5c0f3d59a5d3bae1b48c197b65030c0b" name="a5c0f3d59a5d3bae1b48c197b65030c0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c0f3d59a5d3bae1b48c197b65030c0b">&#9670;&#160;</a></span>chkint</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string chkint</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="main_8cpp_source.html#l00023">23</a> do arquivo <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a35fd1e3b4b7aa595eca11a2b9d953c31" name="a35fd1e3b4b7aa595eca11a2b9d953c31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35fd1e3b4b7aa595eca11a2b9d953c31">&#9670;&#160;</a></span>playing</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int playing = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="main_8cpp_source.html#l00024">24</a> do arquivo <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="main_8cpp.html">main.cpp</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+  </ul>
+</div>
+</body>
+</html>

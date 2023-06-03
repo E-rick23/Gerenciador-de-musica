@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gerenciador de Músicas: Código-Fonte de src/playlist.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Gerenciador de Músicas<span id="projectnumber">&#160;v1.0</span>
+   </div>
+   <div id="projectbrief">Projeto que organiza músicas e playlists e as reproduz.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('playlist_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhum resultado encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">playlist.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="playlist_8cpp.html">Vá para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="playlist_8h.html">playlist.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">using namespace </span>std;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_playlist.html#aef38d55e42995be147977726350f3ada">   14</a></span><a class="code hl_function" href="class_playlist.html#aef38d55e42995be147977726350f3ada">Playlist::Playlist</a>() {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  <a class="code hl_variable" href="class_playlist.html#a77a50cdce43cba8d8ddfca652240f1f3">songs</a> = <span class="keyword">new</span> <a class="code hl_class" href="class_linked_list.html">LinkedList</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  <a class="code hl_variable" href="class_playlist.html#a8252fec176a7888127bc41cf18f4f251">playing</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  <a class="code hl_variable" href="class_playlist.html#aac48f4f1dd79afd730acab27a7a048da">count</a> = 1;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>}</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_playlist.html#aacd9a69e347fc19a9a0787d7a7ce9df4">   20</a></span><a class="code hl_function" href="class_playlist.html#aacd9a69e347fc19a9a0787d7a7ce9df4">Playlist::~Playlist</a>() {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  <span class="keyword">delete</span> <a class="code hl_variable" href="class_playlist.html#a77a50cdce43cba8d8ddfca652240f1f3">songs</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>}</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">   24</a></span><a class="code hl_class" href="class_linked_list.html">LinkedList</a>* <a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">Playlist::getSongs</a>() {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  <span class="keywordflow">return</span> <a class="code hl_variable" href="class_playlist.html#a77a50cdce43cba8d8ddfca652240f1f3">songs</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>}</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_playlist.html#a880984e292d0002d3daa763c386ad963">   28</a></span><span class="keywordtype">string</span> <a class="code hl_function" href="class_playlist.html#a880984e292d0002d3daa763c386ad963">Playlist::getName</a>() {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  <span class="keywordflow">return</span> <a class="code hl_variable" href="class_playlist.html#abf45f72a84e0204cfe9f18005dff9eb7">name</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>}</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_playlist.html#a1b80e7e123426e1ecab29b8955d0f704">   32</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_playlist.html#a1b80e7e123426e1ecab29b8955d0f704">Playlist::setName</a>(<span class="keywordtype">string</span> _name) {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  <a class="code hl_variable" href="class_playlist.html#abf45f72a84e0204cfe9f18005dff9eb7">name</a> = _name;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>}</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="class_playlist.html#ac8473ee36bb208cb92ed6fe59070244a">   36</a></span><a class="code hl_class" href="class_playlist.html">Playlist</a> <a class="code hl_function" href="class_playlist.html#ac8473ee36bb208cb92ed6fe59070244a">Playlist::operator+ </a>(<a class="code hl_class" href="class_playlist.html">Playlist</a>&amp; segPlaylist) {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  <a class="code hl_class" href="class_playlist.html">Playlist</a> resultante; </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  resultante.<a class="code hl_function" href="class_playlist.html#a96d670a87ad7adbcf2bac35293c18db9">insertSong</a>(*<span class="keyword">this</span>); </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  resultante.<a class="code hl_function" href="class_playlist.html#a96d670a87ad7adbcf2bac35293c18db9">insertSong</a>(segPlaylist); </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <span class="keywordflow">return</span> resultante; </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="class_playlist.html#a07aef8d33252f11b13321f4c22d507cd">   43</a></span><a class="code hl_function" href="class_playlist.html#aef38d55e42995be147977726350f3ada">Playlist::Playlist</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_playlist.html">Playlist</a>&amp; old) {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  <a class="code hl_variable" href="class_playlist.html#a77a50cdce43cba8d8ddfca652240f1f3">songs</a> = <span class="keyword">new</span> <a class="code hl_class" href="class_linked_list.html">LinkedList</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  <a class="code hl_variable" href="class_playlist.html#a8252fec176a7888127bc41cf18f4f251">playing</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <a class="code hl_variable" href="class_playlist.html#aac48f4f1dd79afd730acab27a7a048da">count</a> = 1;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  <a class="code hl_variable" href="class_playlist.html#abf45f72a84e0204cfe9f18005dff9eb7">name</a> = old.<a class="code hl_variable" href="class_playlist.html#abf45f72a84e0204cfe9f18005dff9eb7">name</a>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  <a class="code hl_struct" href="structno.html">no</a>* temp = old.<a class="code hl_variable" href="class_playlist.html#a77a50cdce43cba8d8ddfca652240f1f3">songs</a>-&gt;<a class="code hl_function" href="class_linked_list.html#a248422bb6a4e6516ac9905bcb250f57c">getHead</a>(); </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  <span class="keywordflow">while</span> (temp != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_variable" href="class_playlist.html#a77a50cdce43cba8d8ddfca652240f1f3">songs</a>-&gt;<a class="code hl_function" href="class_linked_list.html#acd7d0b683aaf5ea4bb208b806fa2872b">insertEnd</a>(temp-&gt;<a class="code hl_variable" href="structno.html#a144a437f61f86f76d8fe1887fc615578">data</a>);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    temp = temp-&gt;<a class="code hl_variable" href="structno.html#a73542a882b818b44b798ec1d97e16a9d">next</a>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>}</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="class_playlist.html#a1639eeacdc028a2ed24c0c039adfdb66">   55</a></span><a class="code hl_class" href="class_playlist.html">Playlist</a> <a class="code hl_function" href="class_playlist.html#ac8473ee36bb208cb92ed6fe59070244a">Playlist::operator+ </a>(<a class="code hl_class" href="class_song.html">Song</a>&amp; toAdd) {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  <a class="code hl_class" href="class_playlist.html">Playlist</a> resultante; </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  resultante.<a class="code hl_function" href="class_playlist.html#a96d670a87ad7adbcf2bac35293c18db9">insertSong</a>(*<span class="keyword">this</span>); </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  resultante.<a class="code hl_variable" href="class_playlist.html#a77a50cdce43cba8d8ddfca652240f1f3">songs</a>-&gt;<a class="code hl_function" href="class_linked_list.html#acd7d0b683aaf5ea4bb208b806fa2872b">insertEnd</a>(toAdd); </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  <span class="keywordflow">return</span> resultante; </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>}</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="class_playlist.html#a0551c34d3b95e86d3f38794fc480acc5">   67</a></span><a class="code hl_class" href="class_playlist.html">Playlist</a> <a class="code hl_function" href="class_playlist.html#a0551c34d3b95e86d3f38794fc480acc5">Playlist::operator- </a>(<a class="code hl_class" href="class_playlist.html">Playlist</a>&amp; segPlaylist) {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  <a class="code hl_class" href="class_playlist.html">Playlist</a> resultante(*<span class="keyword">this</span>); </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  <a class="code hl_struct" href="structno.html">no</a>* temp = segPlaylist.<a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">getSongs</a>()-&gt;<a class="code hl_function" href="class_linked_list.html#a248422bb6a4e6516ac9905bcb250f57c">getHead</a>();</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  <span class="keywordflow">while</span> (temp != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">size_t</span> pos = resultante.<a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">getSongs</a>()-&gt;<a class="code hl_function" href="class_linked_list.html#a599cc1a1c4f08c8243a57cc846e81267">getPosition</a>(temp-&gt;<a class="code hl_variable" href="structno.html#a144a437f61f86f76d8fe1887fc615578">data</a>);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordflow">if</span> (pos &gt; 0) {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>      resultante.<a class="code hl_function" href="class_playlist.html#a3cff70256b145c3c76ec024d3a00297c">removeSong</a>(pos);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    temp = temp-&gt;<a class="code hl_variable" href="structno.html#a73542a882b818b44b798ec1d97e16a9d">next</a>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  <span class="keywordflow">return</span> resultante; </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>}</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="class_playlist.html#a468af42d4773351510057b2f2a8888d4">   86</a></span><a class="code hl_class" href="class_playlist.html">Playlist</a> <a class="code hl_function" href="class_playlist.html#a0551c34d3b95e86d3f38794fc480acc5">Playlist::operator- </a>(<a class="code hl_class" href="class_song.html">Song</a>&amp; toRemove) {</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  <a class="code hl_class" href="class_playlist.html">Playlist</a> resultante(*<span class="keyword">this</span>); </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  <span class="keywordtype">size_t</span> pos = resultante.<a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">getSongs</a>()-&gt;<a class="code hl_function" href="class_linked_list.html#a599cc1a1c4f08c8243a57cc846e81267">getPosition</a>(toRemove); </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>  <span class="keywordflow">if</span> (pos &gt; 0) {</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    resultante.<a class="code hl_function" href="class_playlist.html#a3cff70256b145c3c76ec024d3a00297c">removeSong</a>(pos);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  <span class="keywordflow">return</span> resultante; </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>}</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="class_playlist.html#a94cddf530d5a121c258b90403048e03b">   99</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_playlist.html#a94cddf530d5a121c258b90403048e03b">Playlist::operator&gt;&gt; </a>(<a class="code hl_class" href="class_song.html">Song</a>*&amp; lastSong) {</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_playlist.html#a77a50cdce43cba8d8ddfca652240f1f3">songs</a>-&gt;<a class="code hl_function" href="class_linked_list.html#ac8d24166208694f4fe3cc982307b03fb">getSize</a>() &gt; 0) {</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <a class="code hl_struct" href="structno.html">no</a>* temp = <span class="keyword">new</span> <a class="code hl_struct" href="structno.html">no</a>;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    *<a class="code hl_variable" href="class_playlist.html#a77a50cdce43cba8d8ddfca652240f1f3">songs</a> &gt;&gt; temp; </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    *lastSong = temp-&gt;<a class="code hl_variable" href="structno.html#a144a437f61f86f76d8fe1887fc615578">data</a>; </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keyword">delete</span> temp;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>  } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    lastSong = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>  }</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>}</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="class_playlist.html#a3350a2fea2ed876dd9a63de335cab240">  113</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_playlist.html#a3350a2fea2ed876dd9a63de335cab240">Playlist::operator&lt;&lt; </a>(<a class="code hl_class" href="class_song.html">Song</a>*&amp; newSong) {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>  <span class="keywordflow">if</span> (newSong == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>  } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <a class="code hl_variable" href="class_playlist.html#a77a50cdce43cba8d8ddfca652240f1f3">songs</a>-&gt;<a class="code hl_function" href="class_linked_list.html#acd7d0b683aaf5ea4bb208b806fa2872b">insertEnd</a>(*newSong);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>  }</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>}</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="class_playlist.html#a96d670a87ad7adbcf2bac35293c18db9">  125</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_playlist.html#a96d670a87ad7adbcf2bac35293c18db9">Playlist::insertSong</a>(<span class="keywordtype">size_t</span> pos, <a class="code hl_class" href="class_song.html">Song</a> value) {</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>  <a class="code hl_variable" href="class_playlist.html#a77a50cdce43cba8d8ddfca652240f1f3">songs</a>-&gt;<a class="code hl_function" href="class_linked_list.html#a902cd9cf43f8ec9711778cd3b71e9175">insertPosition</a>(pos, value);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>  <a class="code hl_variable" href="class_playlist.html#a8252fec176a7888127bc41cf18f4f251">playing</a> = <a class="code hl_variable" href="class_playlist.html#a77a50cdce43cba8d8ddfca652240f1f3">songs</a>-&gt;<a class="code hl_function" href="class_linked_list.html#a248422bb6a4e6516ac9905bcb250f57c">getHead</a>(); </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>}</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="class_playlist.html#a3cff70256b145c3c76ec024d3a00297c">  134</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_playlist.html#a3cff70256b145c3c76ec024d3a00297c">Playlist::removeSong</a>(<span class="keywordtype">size_t</span> pos) {</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>  <a class="code hl_variable" href="class_playlist.html#a77a50cdce43cba8d8ddfca652240f1f3">songs</a>-&gt;<a class="code hl_function" href="class_linked_list.html#a4cf9d1fdf67868d502a7086c245ee3b6">removePosition</a>(pos);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>}</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="class_playlist.html#aad8c43f4a140ecad82dd6694c658abf2">  143</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_playlist.html#aad8c43f4a140ecad82dd6694c658abf2">Playlist::moveSong</a>(<span class="keywordtype">size_t</span> start, <span class="keywordtype">size_t</span> end) {</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>  <span class="keywordflow">if</span> (start != end) {</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <a class="code hl_struct" href="structno.html">no</a>* target = <a class="code hl_variable" href="class_playlist.html#a77a50cdce43cba8d8ddfca652240f1f3">songs</a>-&gt;<a class="code hl_function" href="class_linked_list.html#a4bb6b62a23c9f9675beb4b1f7f104384">getno</a>(start);</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <a class="code hl_class" href="class_song.html">Song</a> value = target-&gt;<a class="code hl_variable" href="structno.html#a144a437f61f86f76d8fe1887fc615578">data</a>;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <a class="code hl_variable" href="class_playlist.html#a77a50cdce43cba8d8ddfca652240f1f3">songs</a>-&gt;<a class="code hl_function" href="class_linked_list.html#a4cf9d1fdf67868d502a7086c245ee3b6">removePosition</a>(start);</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="keywordflow">if</span> (end &lt; start) {</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>      <a class="code hl_variable" href="class_playlist.html#a77a50cdce43cba8d8ddfca652240f1f3">songs</a>-&gt;<a class="code hl_function" href="class_linked_list.html#a902cd9cf43f8ec9711778cd3b71e9175">insertPosition</a>(end, value);</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>      <a class="code hl_variable" href="class_playlist.html#a77a50cdce43cba8d8ddfca652240f1f3">songs</a>-&gt;<a class="code hl_function" href="class_linked_list.html#a902cd9cf43f8ec9711778cd3b71e9175">insertPosition</a>(end + 1, value);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    } </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <a class="code hl_variable" href="class_playlist.html#a8252fec176a7888127bc41cf18f4f251">playing</a> = <a class="code hl_variable" href="class_playlist.html#a77a50cdce43cba8d8ddfca652240f1f3">songs</a>-&gt;<a class="code hl_function" href="class_linked_list.html#a248422bb6a4e6516ac9905bcb250f57c">getHead</a>(); </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>  }</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>}</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="class_playlist.html#a54e665f44066681c6e84b0f0a98496e7">  164</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_playlist.html#a96d670a87ad7adbcf2bac35293c18db9">Playlist::insertSong</a>(<a class="code hl_class" href="class_playlist.html">Playlist</a>&amp; toInsert) {</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>  <span class="keywordflow">if</span> (toInsert.<a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">getSongs</a>()-&gt;<a class="code hl_function" href="class_linked_list.html#ac8d24166208694f4fe3cc982307b03fb">getSize</a>() &lt; 1) {</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>  } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <a class="code hl_variable" href="class_playlist.html#a77a50cdce43cba8d8ddfca652240f1f3">songs</a>-&gt;<a class="code hl_function" href="class_linked_list.html#acd7d0b683aaf5ea4bb208b806fa2872b">insertEnd</a>(*toInsert.<a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">getSongs</a>()); </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>  }</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>}</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="class_playlist.html#a2dc35fdc2098a453bcab3a4c05c82757">  178</a></span><span class="keywordtype">size_t</span> <a class="code hl_function" href="class_playlist.html#a3cff70256b145c3c76ec024d3a00297c">Playlist::removeSong</a>(<a class="code hl_class" href="class_playlist.html">Playlist</a>&amp; toRemove) {</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>  <span class="keywordflow">if</span> (toRemove.<a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">getSongs</a>()-&gt;<a class="code hl_function" href="class_linked_list.html#ac8d24166208694f4fe3cc982307b03fb">getSize</a>() &lt; 1) {</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>  } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    <span class="keywordtype">size_t</span> removed = 0;</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <a class="code hl_struct" href="structno.html">no</a>* temp = toRemove.<a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">getSongs</a>()-&gt;<a class="code hl_function" href="class_linked_list.html#a248422bb6a4e6516ac9905bcb250f57c">getHead</a>();</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <span class="keywordflow">while</span> (temp != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>      <span class="keywordtype">size_t</span> pos = <a class="code hl_function" href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">getSongs</a>()-&gt;<a class="code hl_function" href="class_linked_list.html#a599cc1a1c4f08c8243a57cc846e81267">getPosition</a>(temp-&gt;<a class="code hl_variable" href="structno.html#a144a437f61f86f76d8fe1887fc615578">data</a>); </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>      <span class="keywordflow">if</span> (pos &gt; 0) {</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        <a class="code hl_function" href="class_playlist.html#a3cff70256b145c3c76ec024d3a00297c">removeSong</a>(pos);</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        ++removed;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>      }</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>      temp = temp-&gt;<a class="code hl_variable" href="structno.html#a73542a882b818b44b798ec1d97e16a9d">next</a>;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    }</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    <span class="keywordflow">return</span> removed; </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>  }</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>}</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno"><a class="line" href="class_playlist.html#ac749def3329225790a8069ea61f808a4">  202</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_playlist.html#ac749def3329225790a8069ea61f808a4">Playlist::displayAllSongs</a>(<a class="code hl_struct" href="structno.html">no</a>* current) {</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>  <span class="keywordflow">if</span> (current == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <a class="code hl_variable" href="class_playlist.html#aac48f4f1dd79afd730acab27a7a048da">count</a> = 1;</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>  }</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>  cout &lt;&lt; <a class="code hl_variable" href="class_playlist.html#aac48f4f1dd79afd730acab27a7a048da">count</a> &lt;&lt; <span class="stringliteral">&quot; - &quot;</span> &lt;&lt; current-&gt;<a class="code hl_variable" href="structno.html#a144a437f61f86f76d8fe1887fc615578">data</a>.<a class="code hl_function" href="class_song.html#a3dd577c3abfc309bceea6b0968a68d1c">getTitle</a>() &lt;&lt; <span class="stringliteral">&quot; - &quot;</span> &lt;&lt; current-&gt;<a class="code hl_variable" href="structno.html#a144a437f61f86f76d8fe1887fc615578">data</a>.<a class="code hl_function" href="class_song.html#a07dcbecc06e304ab0e243d612fae785d">getArtist</a>() &lt;&lt; endl; </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>  ++<a class="code hl_variable" href="class_playlist.html#aac48f4f1dd79afd730acab27a7a048da">count</a>;</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>  <a class="code hl_function" href="class_playlist.html#ac749def3329225790a8069ea61f808a4">displayAllSongs</a>(current-&gt;<a class="code hl_variable" href="structno.html#a73542a882b818b44b798ec1d97e16a9d">next</a>); </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>}</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="comment">/*void Playlist::saveAlltofile(no* current, ofstream&amp; myfile) {</span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="comment">  // Condição de parada </span></div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="comment">  if (current == nullptr) {</span></div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="comment">    count = 1;</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><span class="comment">    return;</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="comment">  }</span></div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="comment">  myfile &lt;&lt; count &lt;&lt; &quot; - &quot; &lt;&lt; current-&gt;data.getTitle() &lt;&lt; &quot; - &quot; &lt;&lt; current-&gt;data.getArtist() &lt;&lt; endl; //Exibe a música atual</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span><span class="comment">  ++count;</span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span><span class="comment">  saveAlltofile(current-&gt;next, myfile); // Chamada recursiva para que todas as músicas sejam exibidas</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="comment">}*/</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno"><a class="line" href="playlist_8cpp.html#ab5ecfa9f9750a72bc72c56c027ce03e7">  224</a></span><span class="keywordtype">string</span> <a class="code hl_variable" href="playlist_8cpp.html#ab5ecfa9f9750a72bc72c56c027ce03e7">tempStr</a>;</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno"><a class="line" href="class_playlist.html#a7697cc17a676db44638d4d60668026b1">  232</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_playlist.html#a7697cc17a676db44638d4d60668026b1">Playlist::saveAlltofile</a>(<a class="code hl_struct" href="structno.html">no</a>* current, ofstream&amp; myfile) {</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>  <span class="keywordflow">if</span> (current == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <a class="code hl_variable" href="class_playlist.html#aac48f4f1dd79afd730acab27a7a048da">count</a> = 1;</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>  }</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>  <a class="code hl_variable" href="playlist_8cpp.html#ab5ecfa9f9750a72bc72c56c027ce03e7">tempStr</a> = current-&gt;<a class="code hl_variable" href="structno.html#a144a437f61f86f76d8fe1887fc615578">data</a>.<a class="code hl_function" href="class_song.html#a3dd577c3abfc309bceea6b0968a68d1c">getTitle</a>() + <span class="stringliteral">&quot;:&quot;</span> + current-&gt;<a class="code hl_variable" href="structno.html#a144a437f61f86f76d8fe1887fc615578">data</a>.<a class="code hl_function" href="class_song.html#a07dcbecc06e304ab0e243d612fae785d">getArtist</a>() + <span class="stringliteral">&quot;,&quot;</span>; </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>  <span class="keywordflow">if</span>(current-&gt;<a class="code hl_variable" href="structno.html#a73542a882b818b44b798ec1d97e16a9d">next</a> == <span class="keyword">nullptr</span>){</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <a class="code hl_variable" href="playlist_8cpp.html#ab5ecfa9f9750a72bc72c56c027ce03e7">tempStr</a>.erase(<a class="code hl_variable" href="playlist_8cpp.html#ab5ecfa9f9750a72bc72c56c027ce03e7">tempStr</a>.size() -1 );</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    myfile &lt;&lt; <a class="code hl_variable" href="playlist_8cpp.html#ab5ecfa9f9750a72bc72c56c027ce03e7">tempStr</a>;</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>  }</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>  <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    myfile &lt;&lt; <a class="code hl_variable" href="playlist_8cpp.html#ab5ecfa9f9750a72bc72c56c027ce03e7">tempStr</a>;</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>  }</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>  ++<a class="code hl_variable" href="class_playlist.html#aac48f4f1dd79afd730acab27a7a048da">count</a>;</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>  <a class="code hl_function" href="class_playlist.html#a7697cc17a676db44638d4d60668026b1">saveAlltofile</a>(current-&gt;<a class="code hl_variable" href="structno.html#a73542a882b818b44b798ec1d97e16a9d">next</a>, myfile); </div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>}</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno"><a class="line" href="class_playlist.html#a853345e85d6898253897932b64471a29">  257</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_playlist.html#a853345e85d6898253897932b64471a29">Playlist::displayOne</a>(<a class="code hl_struct" href="structno.html">no</a>* current, <span class="keywordtype">int</span> pos){</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>  <span class="keywordflow">if</span> (current == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    <a class="code hl_variable" href="class_playlist.html#aac48f4f1dd79afd730acab27a7a048da">count</a> = 1;</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>  }</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>  <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_playlist.html#aac48f4f1dd79afd730acab27a7a048da">count</a> == pos){</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>cout &lt;&lt; current-&gt;<a class="code hl_variable" href="structno.html#a144a437f61f86f76d8fe1887fc615578">data</a>.<a class="code hl_function" href="class_song.html#a3dd577c3abfc309bceea6b0968a68d1c">getTitle</a>() &lt;&lt; <span class="stringliteral">&quot; - &quot;</span> &lt;&lt; current-&gt;<a class="code hl_variable" href="structno.html#a144a437f61f86f76d8fe1887fc615578">data</a>.<a class="code hl_function" href="class_song.html#a07dcbecc06e304ab0e243d612fae785d">getArtist</a>() &lt;&lt; endl; </div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>  }</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>  ++<a class="code hl_variable" href="class_playlist.html#aac48f4f1dd79afd730acab27a7a048da">count</a>;</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>  <a class="code hl_function" href="class_playlist.html#a853345e85d6898253897932b64471a29">displayOne</a>(current-&gt;<a class="code hl_variable" href="structno.html#a73542a882b818b44b798ec1d97e16a9d">next</a>, pos);</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>}</div>
+<div class="ttc" id="aclass_linked_list_html"><div class="ttname"><a href="class_linked_list.html">LinkedList</a></div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8h_source.html#l00012">listaLigada.h:12</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_a248422bb6a4e6516ac9905bcb250f57c"><div class="ttname"><a href="class_linked_list.html#a248422bb6a4e6516ac9905bcb250f57c">LinkedList::getHead</a></div><div class="ttdeci">no * getHead()</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00038">listaLigada.cpp:38</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_a4bb6b62a23c9f9675beb4b1f7f104384"><div class="ttname"><a href="class_linked_list.html#a4bb6b62a23c9f9675beb4b1f7f104384">LinkedList::getno</a></div><div class="ttdeci">no * getno(size_t pos)</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00341">listaLigada.cpp:341</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_a4cf9d1fdf67868d502a7086c245ee3b6"><div class="ttname"><a href="class_linked_list.html#a4cf9d1fdf67868d502a7086c245ee3b6">LinkedList::removePosition</a></div><div class="ttdeci">void removePosition(size_t pos)</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00260">listaLigada.cpp:260</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_a599cc1a1c4f08c8243a57cc846e81267"><div class="ttname"><a href="class_linked_list.html#a599cc1a1c4f08c8243a57cc846e81267">LinkedList::getPosition</a></div><div class="ttdeci">size_t getPosition(Song searchSong)</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00359">listaLigada.cpp:359</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_a902cd9cf43f8ec9711778cd3b71e9175"><div class="ttname"><a href="class_linked_list.html#a902cd9cf43f8ec9711778cd3b71e9175">LinkedList::insertPosition</a></div><div class="ttdeci">void insertPosition(size_t pos, Song value)</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00196">listaLigada.cpp:196</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_ac8d24166208694f4fe3cc982307b03fb"><div class="ttname"><a href="class_linked_list.html#ac8d24166208694f4fe3cc982307b03fb">LinkedList::getSize</a></div><div class="ttdeci">size_t getSize()</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00046">listaLigada.cpp:46</a></div></div>
+<div class="ttc" id="aclass_linked_list_html_acd7d0b683aaf5ea4bb208b806fa2872b"><div class="ttname"><a href="class_linked_list.html#acd7d0b683aaf5ea4bb208b806fa2872b">LinkedList::insertEnd</a></div><div class="ttdeci">int insertEnd(Song value)</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8cpp_source.html#l00150">listaLigada.cpp:150</a></div></div>
+<div class="ttc" id="aclass_playlist_html"><div class="ttname"><a href="class_playlist.html">Playlist</a></div><div class="ttdef"><b>Definition:</b> <a href="playlist_8h_source.html#l00011">playlist.h:11</a></div></div>
+<div class="ttc" id="aclass_playlist_html_a0551c34d3b95e86d3f38794fc480acc5"><div class="ttname"><a href="class_playlist.html#a0551c34d3b95e86d3f38794fc480acc5">Playlist::operator-</a></div><div class="ttdeci">Playlist operator-(Playlist &amp;secondPlaylist)</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8cpp_source.html#l00067">playlist.cpp:67</a></div></div>
+<div class="ttc" id="aclass_playlist_html_a1b80e7e123426e1ecab29b8955d0f704"><div class="ttname"><a href="class_playlist.html#a1b80e7e123426e1ecab29b8955d0f704">Playlist::setName</a></div><div class="ttdeci">void setName(string _name)</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8cpp_source.html#l00032">playlist.cpp:32</a></div></div>
+<div class="ttc" id="aclass_playlist_html_a3350a2fea2ed876dd9a63de335cab240"><div class="ttname"><a href="class_playlist.html#a3350a2fea2ed876dd9a63de335cab240">Playlist::operator&lt;&lt;</a></div><div class="ttdeci">void operator&lt;&lt;(Song *&amp;newSong)</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8cpp_source.html#l00113">playlist.cpp:113</a></div></div>
+<div class="ttc" id="aclass_playlist_html_a3cff70256b145c3c76ec024d3a00297c"><div class="ttname"><a href="class_playlist.html#a3cff70256b145c3c76ec024d3a00297c">Playlist::removeSong</a></div><div class="ttdeci">void removeSong(size_t pos)</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8cpp_source.html#l00134">playlist.cpp:134</a></div></div>
+<div class="ttc" id="aclass_playlist_html_a442977c2fd3ee10969b1f8ee6d3c4287"><div class="ttname"><a href="class_playlist.html#a442977c2fd3ee10969b1f8ee6d3c4287">Playlist::getSongs</a></div><div class="ttdeci">LinkedList * getSongs()</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8cpp_source.html#l00024">playlist.cpp:24</a></div></div>
+<div class="ttc" id="aclass_playlist_html_a7697cc17a676db44638d4d60668026b1"><div class="ttname"><a href="class_playlist.html#a7697cc17a676db44638d4d60668026b1">Playlist::saveAlltofile</a></div><div class="ttdeci">void saveAlltofile(no *current, ofstream &amp;myfile)</div><div class="ttdoc">Função recursiva que adiciona uma playlist a um arquivo &quot;Playlist.txt&quot;.</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8cpp_source.html#l00232">playlist.cpp:232</a></div></div>
+<div class="ttc" id="aclass_playlist_html_a77a50cdce43cba8d8ddfca652240f1f3"><div class="ttname"><a href="class_playlist.html#a77a50cdce43cba8d8ddfca652240f1f3">Playlist::songs</a></div><div class="ttdeci">LinkedList * songs</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8h_source.html#l00014">playlist.h:14</a></div></div>
+<div class="ttc" id="aclass_playlist_html_a8252fec176a7888127bc41cf18f4f251"><div class="ttname"><a href="class_playlist.html#a8252fec176a7888127bc41cf18f4f251">Playlist::playing</a></div><div class="ttdeci">no * playing</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8h_source.html#l00015">playlist.h:15</a></div></div>
+<div class="ttc" id="aclass_playlist_html_a853345e85d6898253897932b64471a29"><div class="ttname"><a href="class_playlist.html#a853345e85d6898253897932b64471a29">Playlist::displayOne</a></div><div class="ttdeci">void displayOne(no *current, int pos)</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8cpp_source.html#l00257">playlist.cpp:257</a></div></div>
+<div class="ttc" id="aclass_playlist_html_a880984e292d0002d3daa763c386ad963"><div class="ttname"><a href="class_playlist.html#a880984e292d0002d3daa763c386ad963">Playlist::getName</a></div><div class="ttdeci">string getName()</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8cpp_source.html#l00028">playlist.cpp:28</a></div></div>
+<div class="ttc" id="aclass_playlist_html_a94cddf530d5a121c258b90403048e03b"><div class="ttname"><a href="class_playlist.html#a94cddf530d5a121c258b90403048e03b">Playlist::operator&gt;&gt;</a></div><div class="ttdeci">void operator&gt;&gt;(Song *&amp;lastSong)</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8cpp_source.html#l00099">playlist.cpp:99</a></div></div>
+<div class="ttc" id="aclass_playlist_html_a96d670a87ad7adbcf2bac35293c18db9"><div class="ttname"><a href="class_playlist.html#a96d670a87ad7adbcf2bac35293c18db9">Playlist::insertSong</a></div><div class="ttdeci">void insertSong(size_t pos, Song value)</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8cpp_source.html#l00125">playlist.cpp:125</a></div></div>
+<div class="ttc" id="aclass_playlist_html_aac48f4f1dd79afd730acab27a7a048da"><div class="ttname"><a href="class_playlist.html#aac48f4f1dd79afd730acab27a7a048da">Playlist::count</a></div><div class="ttdeci">size_t count</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8h_source.html#l00016">playlist.h:16</a></div></div>
+<div class="ttc" id="aclass_playlist_html_aacd9a69e347fc19a9a0787d7a7ce9df4"><div class="ttname"><a href="class_playlist.html#aacd9a69e347fc19a9a0787d7a7ce9df4">Playlist::~Playlist</a></div><div class="ttdeci">~Playlist()</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8cpp_source.html#l00020">playlist.cpp:20</a></div></div>
+<div class="ttc" id="aclass_playlist_html_aad8c43f4a140ecad82dd6694c658abf2"><div class="ttname"><a href="class_playlist.html#aad8c43f4a140ecad82dd6694c658abf2">Playlist::moveSong</a></div><div class="ttdeci">void moveSong(size_t start, size_t end)</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8cpp_source.html#l00143">playlist.cpp:143</a></div></div>
+<div class="ttc" id="aclass_playlist_html_abf45f72a84e0204cfe9f18005dff9eb7"><div class="ttname"><a href="class_playlist.html#abf45f72a84e0204cfe9f18005dff9eb7">Playlist::name</a></div><div class="ttdeci">string name</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8h_source.html#l00013">playlist.h:13</a></div></div>
+<div class="ttc" id="aclass_playlist_html_ac749def3329225790a8069ea61f808a4"><div class="ttname"><a href="class_playlist.html#ac749def3329225790a8069ea61f808a4">Playlist::displayAllSongs</a></div><div class="ttdeci">void displayAllSongs(no *current)</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8cpp_source.html#l00202">playlist.cpp:202</a></div></div>
+<div class="ttc" id="aclass_playlist_html_ac8473ee36bb208cb92ed6fe59070244a"><div class="ttname"><a href="class_playlist.html#ac8473ee36bb208cb92ed6fe59070244a">Playlist::operator+</a></div><div class="ttdeci">Playlist operator+(Playlist &amp;secondPlaylist)</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8cpp_source.html#l00036">playlist.cpp:36</a></div></div>
+<div class="ttc" id="aclass_playlist_html_aef38d55e42995be147977726350f3ada"><div class="ttname"><a href="class_playlist.html#aef38d55e42995be147977726350f3ada">Playlist::Playlist</a></div><div class="ttdeci">Playlist()</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8cpp_source.html#l00014">playlist.cpp:14</a></div></div>
+<div class="ttc" id="aclass_song_html"><div class="ttname"><a href="class_song.html">Song</a></div><div class="ttdef"><b>Definition:</b> <a href="musica_8h_source.html#l00008">musica.h:8</a></div></div>
+<div class="ttc" id="aclass_song_html_a07dcbecc06e304ab0e243d612fae785d"><div class="ttname"><a href="class_song.html#a07dcbecc06e304ab0e243d612fae785d">Song::getArtist</a></div><div class="ttdeci">string getArtist()</div><div class="ttdoc">Get que retorna o artísta de um &quot;Song&quot;.</div><div class="ttdef"><b>Definition:</b> <a href="musica_8cpp_source.html#l00037">musica.cpp:37</a></div></div>
+<div class="ttc" id="aclass_song_html_a3dd577c3abfc309bceea6b0968a68d1c"><div class="ttname"><a href="class_song.html#a3dd577c3abfc309bceea6b0968a68d1c">Song::getTitle</a></div><div class="ttdeci">string getTitle()</div><div class="ttdoc">Get que retorna o título de um &quot;Song&quot;.</div><div class="ttdef"><b>Definition:</b> <a href="musica_8cpp_source.html#l00029">musica.cpp:29</a></div></div>
+<div class="ttc" id="aplaylist_8cpp_html_ab5ecfa9f9750a72bc72c56c027ce03e7"><div class="ttname"><a href="playlist_8cpp.html#ab5ecfa9f9750a72bc72c56c027ce03e7">tempStr</a></div><div class="ttdeci">string tempStr</div><div class="ttdef"><b>Definition:</b> <a href="playlist_8cpp_source.html#l00224">playlist.cpp:224</a></div></div>
+<div class="ttc" id="aplaylist_8h_html"><div class="ttname"><a href="playlist_8h.html">playlist.h</a></div></div>
+<div class="ttc" id="astructno_html"><div class="ttname"><a href="structno.html">no</a></div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8h_source.html#l00007">listaLigada.h:7</a></div></div>
+<div class="ttc" id="astructno_html_a144a437f61f86f76d8fe1887fc615578"><div class="ttname"><a href="structno.html#a144a437f61f86f76d8fe1887fc615578">no::data</a></div><div class="ttdeci">Song data</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8h_source.html#l00008">listaLigada.h:8</a></div></div>
+<div class="ttc" id="astructno_html_a73542a882b818b44b798ec1d97e16a9d"><div class="ttname"><a href="structno.html#a73542a882b818b44b798ec1d97e16a9d">no::next</a></div><div class="ttdeci">no * next</div><div class="ttdef"><b>Definition:</b> <a href="lista_ligada_8h_source.html#l00009">listaLigada.h:9</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="playlist_8cpp.html">playlist.cpp</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+  </ul>
+</div>
+</body>
+</html>
