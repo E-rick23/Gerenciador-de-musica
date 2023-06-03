@@ -495,6 +495,7 @@ int main(){
             cout << endl << endl << "Músicas da playlist '" << tempPlaylist->getName() << "':" << endl << endl;
             tempPlaylist->displayAllSongs(tempPlaylist->getSongs()->getHead());
           }
+          cout << endl;
         }
       }
       if(chooser == "copyp"){
@@ -575,7 +576,63 @@ int main(){
           }
           tempPlaylist2 = playlists->getPlaylist(index2);
 
-          Playlist* tempPlaylist3 = new Playlist(*tempPlaylist + *tempPlaylist2);
+          Playlist* tempPlaylist3 = new Playlist(*tempPlaylist + *tempPlaylist2); //p3 = p1+p2
+
+          cout << "Digite o nome da nova Playlist: ";
+          cin.ignore(256, '\n');
+          getline(cin, tempTitle);
+
+          // Adiciona o nome escolhido
+          tempPlaylist3->setName(tempTitle);
+
+          // Insere na lista
+          playlists->insertPlaylist(tempPlaylist3);         
+        }
+      }
+      if (chooser == "mergep-"){
+        validcommand = 1;
+
+        if (playlists->getSize() == 0) {
+          cout << "Ops, nenhuma playlist foi adicionada até o momento, crie duas e tente novamente! " << endl;
+        }
+        if  (playlists->getSize() == 1) {
+          cout << "Você precisa de pelo menos duas playlists para realizar essa operação, crie-as e tente novamente! " << endl;
+        } else {
+          // Lê a entrada
+          cout << "Playlists disponíveis: " << endl;
+          playlists->display();
+          cout << "Insira o índice da primeira playlist desejada: ";
+          cin >> chkint; 
+          index = stoi(checkInt(chkint));
+
+          // Processo para garantir que a entrada é válida
+          while (index < 1 || index > playlists->getSize()) {
+            cout << "Índice inválido! Tente novamente: ";
+            cin >> chkint; 
+            index = stoi(checkInt(chkint));
+          }
+
+          // Obtém a playlist pelo índice
+          tempPlaylist = playlists->getPlaylist(index);
+
+          Playlist* tempPlaylist2 = nullptr;
+          
+          // Lê a entrada
+          cout << "Playlists disponíveis: " << endl;
+          playlists->display();
+          cout << "Insira o índice da segunda playlist desejada: ";
+          cin >> chkint; 
+          index2 = stoi(checkInt(chkint));
+
+          // Processo para garantir que a entrada é válida
+          while (index2 < 1 || index2 > playlists->getSize() || index2 == index ) {
+            cout << "Índice inválido! Tente novamente: ";
+            cin >> chkint; 
+            index2 = stoi(checkInt(chkint));
+          }
+          tempPlaylist2 = playlists->getPlaylist(index2);
+
+          Playlist* tempPlaylist3 = new Playlist(*tempPlaylist - *tempPlaylist2); //p3 = p1 - p2
 
           cout << "Digite o nome da nova Playlist: ";
           cin.ignore(256, '\n');
