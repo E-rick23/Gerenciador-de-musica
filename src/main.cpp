@@ -685,7 +685,7 @@ int main(){
       tempSong.setArtist("Van Haley");
       globalList->insertEnd(tempSong);
       Playlist_2->insertSong(4, tempSong);
-      cout << "Músicas adicionadas com sucesso!" << endl << endl;
+      cout << endl << "Músicas adicionadas com sucesso!" << endl << endl;
     }
     if (chooser == "help"){
       validcommand = 1;
