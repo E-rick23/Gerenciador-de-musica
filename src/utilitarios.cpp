@@ -300,8 +300,8 @@ void helpPage(){
   cout << "listmp - Listar músicas de uma playlist" << endl;
   cout << "copyp - Criar uma cópia de uma playlist existente." << endl;
   cout << "mergep - Unir duas playlists em uma única playlist" << endl;
-  cout << "mergep- - Remover músicas da segunda playlist da primeira e retornar uma nova playlist" << endl << endl;
-  cout << "savetf - Salvar uma playlist em um arquivo" << endl;
+  cout << "mergep- - Remover músicas da segunda playlist da primeira e retornar uma nova playlist" << endl;
+  cout << "savetf - Salvar uma playlist em um arquivo" << endl << endl;
 
   cout << "Comandos para teste:" << endl;
   
