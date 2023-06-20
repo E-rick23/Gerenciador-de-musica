@@ -6,7 +6,7 @@ include_directories( include )
 #Building Instructions for Bash/WSL:
 #On the terminal type -> cmake .
 #Then type -> make
-#After that, to execute it, type -> ./livros
+#After that, to execute it, type -> ./music
 
 add_executable( music
                 src/main.cpp
